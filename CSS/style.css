@@ -1,0 +1,46 @@
+nav {
+    width: 90%;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: #001E42;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    font-family: 'calibri', tahoma;
+    display: flex;
+    overflow: visible;
+}
+
+.navbutton {
+    text-align: center;
+    padding: 4pt;
+    text-decoration: none;
+    color: white;
+    width: 19%;
+    height: 30px;
+}
+
+.navbutton:hover {
+    background: #2B9348;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100px;
+    background-color: #001E42;
+}
+
+.dropdown-content .navbutton {
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
