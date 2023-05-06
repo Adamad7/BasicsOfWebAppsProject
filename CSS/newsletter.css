@@ -1,0 +1,26 @@
+#newsletter_title {
+    display: flex;
+    flex-direction: row;
+}
+
+#newsletter_title img {
+    width: 100px;
+}
+
+#newsletter_title h2 {
+    width: 40%;
+    font-size: 1em;
+}
+
+#newsletter_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#newsletter_form div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 0.9em;
+}

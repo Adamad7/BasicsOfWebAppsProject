@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pstrągarnia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/newsletter.css">
+</head>
+
+<body>
+
+    <nav>
+
+
+
+        <a href="index.html">Strona główna</a>
+        <a href="shop.html">Sklep</a>
+        <a href="#news">Poradniki</a>
+        <div class="dropdown">
+            <button class="dropbtn">Niezbędnik
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#">Atlas</a>
+                <a href="#">Łowiska</a>
+                <a href="#">Kalendarz</a>
+            </div>
+        </div>
+        <a href="newsletter.html">Newsletter</a>
+        <a href="#news">Źródła</a>
+    </nav>
+
+    <main>
+        <div id="newsletter_title">
+            <img id="index_page_fish" src="img\sea-fish-drawing.png" alt="ryba">
+            <h2>
+                Zapisz się do naszego newslettera!
+            </h2>
+            <img id="index_page_fish" src="img\sea-fish-drawing.png" alt="ryba">
+        </div>
+        <div id="newsletter_form">
+            <form>
+                <div>
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email">
+                </div>
+
+                <div>
+                    <label for="name">Imię</label>
+                    <input type="text" id="name">
+                </div>
+
+
+                <div>
+                    <label for="freq_1">Codziennie</label>
+                    <input type="radio" name="frequency" id="freq_1">
+                    <label for="freq_2">2 razy w tygodniu</label>
+                    <input type="radio" name="frequency" id="freq_2">
+                    <label for="freq_3">Raz w tygodniu</label>
+                    <input type="radio" name="frequency" id="freq_3">
+                    <label for="freq_4">Raz na dwa tygodnie</label>
+                    <input type="radio" name="frequency" id="freq_4">
+                    <label for="freq_5">Raz na miesiąc</label>
+                    <input type="radio" name="frequency" id="freq_5">
+                </div>
+
+
+                <div>
+                    <label for="trip_reports">Relacje z wypraw</label>
+                    <input type="checkbox" class="subjects" id="trip_reports">
+                    <label for="shop_sales">Promocje w sklepie</label>
+                    <input type="checkbox" class="subjects" id="shop_sales">
+                    <label for="guides">Poradniki</label>
+                    <input type="checkbox" class="subjects" id="guides">
+                    <label for="events">Wydarzenia</label>
+                    <input type="checkbox" class="subjects" id="events">
+                    <label for="news">Wiadomości</label>
+                    <input type="checkbox" class="subjects" id="news">
+                </div>
+
+                <div>
+                    <label for="float">Spławik</label>
+                    <input type="radio" name="fav_fishing_type" id="float">
+                    <label for="spinning">Spinning</label>
+                    <input type="radio" name="fav_fishing_type" id="spinning">
+                    <label for="ground">Gruntowe</label>
+                    <input type="radio" name="fav_fishing_type" id="ground">
+                </div>
+
+                <div>
+                    <textarea cols="40" rows="4"></textarea>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="rodo">
+                    <label for="rodo">
+                        Wyrażam zgodę na przetwarzanie moich danych osobowych w celu
+                        otrzymywania newslettera
+                    </label>
+                </div>
+
+
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        &copy Adam Mazur
+    </footer>
+</body>
+
+</html>
