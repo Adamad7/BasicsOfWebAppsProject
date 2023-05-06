@@ -1,50 +1,36 @@
-/* nav {
-    width: 90%;
-    height: 40px;
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color: #001E42;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
-    font-family: 'calibri', tahoma;
-    display: flex;
-    overflow: visible;
-}
-
-.navbutton {
-    text-align: center;
-    padding: 4pt;
-    text-decoration: none;
-    color: white;
-    width: 19%;
-    height: 30px;
-}
-
-.navbutton:hover {
-    background: #2B9348;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    width: 100px;
-    background-color: #001E42;
-}
-
-.dropdown-content .navbutton {
-    display: block;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
+/* body {
+    background-image: url('https://www.tapeciarnia.pl/tapety/normalne/tapeta-drzewa-nad-brzegiem-jeziora-o-poranku.jpg');
+    background-repeat: no-repeat;
 } */
 
+
+/*
+Kolory
+001E42 - ciemny niebieski
+E6E6E6 - platynowy
+2292A4 - jasny niebieski
+D7263D - czerwony
+F46036 - pomarańczowy
+
+*/
+
+body {
+    background-color: #E6E6E6;
+    font-family: Arial;
+    padding: 0;
+}
+
+
+footer {
+    width: 20%;
+    height: 25px;
+    color: #001E42;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 15px;
+    margin-top: 20px;
+}
 
 nav {
     overflow: hidden;
@@ -52,6 +38,9 @@ nav {
     font-family: Arial;
     display: flex;
     border-radius: 15px;
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 nav a {
@@ -106,4 +95,53 @@ nav a:hover,
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+main {
+    display: block;
+    width: 75%;
+    min-height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 0px 15px -3px rgba(66, 68, 90, 1);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+h2 {
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 1.2em;
+    background-color: #4F75A7;
+    display: block;
+    width: 70%;
+    border: 3px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+}
+
+h3 {
+    font-weight: 300;
+    font-size: 0.9em;
+
+}
+
+h3 div {
+    padding-top: 15px;
+    /* background-color: red; */
+    /* text-align: center; */
+}
+
+#index_page_fish {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block
 }
