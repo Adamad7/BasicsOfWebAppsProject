@@ -1,0 +1,117 @@
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+
+#events {
+    width: 100%;
+}
+
+.event {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.event img {
+    width: 40px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+#calendar_nav {
+    /* border: 2px solid purple; */
+    width: 476px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px
+}
+
+.calendar_nav_button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    background-color: #001E42;
+    border-radius: 10px;
+    color: #E6E6E6;
+    font-size: 1.5em;
+}
+
+#calendar_nav_title {
+    width: 396px;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #001E42;
+
+}
+
+
+#calendar_days {
+    width: 476px;
+    /* height: 400px; */
+    /* border: 2px solid green; */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.day {
+    width: 60px;
+    height: 80px;
+    margin: 2px;
+    border: 2pt solid #001E42;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.invisible {
+    border-color: transparent;
+}
+
+
+.dayname {
+    height: 20px;
+    background-color: #001E42;
+    color: #E6E6E6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.weekend .dayname {
+    background-color: red;
+}
+
+.daynumber {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 1.6em;
+}
+
+.eventday {
+    border-radius: 100px;
+    margin: 5px;
+    background-color: #6A99B6;
+}
+
+.today .daynumber {
+    border-radius: 100px;
+    margin: 5px;
+    border: 3px solid #001E42;
+}
+
+.invisible * {
+    display: none;
+}

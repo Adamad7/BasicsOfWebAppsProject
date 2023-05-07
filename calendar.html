@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pstrągarnia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/calendar.css">
+
+    <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script src="JS/calendar.js"></script>
+
+
+</head>
+
+<body>
+
+    <nav>
+
+
+
+        <a href="index.html">Strona główna</a>
+        <a href="shop.html">Sklep</a>
+        <a href="#news">Poradniki</a>
+        <div class="dropdown">
+            <button class="dropbtn">Niezbędnik
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#">Atlas</a>
+                <a href="#">Łowiska</a>
+                <a href="calendar.html">Kalendarz</a>
+            </div>
+        </div>
+        <a href="newsletter.html">Newsletter</a>
+        <a href="#news">Źródła</a>
+    </nav>
+
+    <main>
+
+        <div id="events">
+            <div class="event">
+                <img src="img\sea-fish-drawing.png" class="event_fish">
+                <div>
+                    <b>10 kwietnia 2023 </b> - Zjazd miłośników szczupaków
+                </div>
+            </div>
+
+        </div>
+        <div id="calendar">
+            <div id="calendar_nav">
+                <button class="calendar_nav_button" onclick="previousMonth()"><i class="fa fa-angle-left"></i></button>
+                <div id="calendar_nav_title"></div>
+                <button class="calendar_nav_button" onclick="nextMonth()"><i class="fa fa-angle-right"></i></button>
+            </div>
+
+            <div id="calendar_days"></div>
+
+        </div>
+    </main>
+
+    <footer>
+        &copy Adam Mazur
+    </footer>
+</body>
+
+</html>
