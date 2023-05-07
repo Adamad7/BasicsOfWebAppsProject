@@ -1,17 +1,26 @@
 main {
     display: flex;
     flex-direction: row;
+    padding-top: 40px;
+}
+
+h2 {
+    margin-top: 0;
 }
 
 
 #events {
-    width: 100%;
+    /* width: 100%; */
+    padding-top: 10px;
+    padding-right: 30px;
+    /* background-color: green; */
 }
 
 .event {
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-block: 15px;
 }
 
 .event img {
@@ -22,7 +31,7 @@ main {
 
 #calendar_nav {
     /* border: 2px solid purple; */
-    width: 476px;
+    width: 350px;
     height: 40px;
     display: flex;
     flex-direction: row;
@@ -41,7 +50,7 @@ main {
 }
 
 #calendar_nav_title {
-    width: 396px;
+    width: 270px;
     /* background-color: red; */
     display: flex;
     align-items: center;
@@ -54,7 +63,7 @@ main {
 
 
 #calendar_days {
-    width: 476px;
+    width: 350px;
     /* height: 400px; */
     /* border: 2px solid green; */
     display: flex;
@@ -62,10 +71,10 @@ main {
 }
 
 .day {
-    width: 60px;
-    height: 80px;
+    width: 42px;
+    height: 60px;
     margin: 2px;
-    border: 2pt solid #001E42;
+    border: 2px solid #001E42;
     border-radius: 10px;
     overflow: hidden;
     display: flex;

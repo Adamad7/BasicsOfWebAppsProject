@@ -27,21 +27,43 @@ const dayNames = [
 var events = [
     {
         year: 2023,
-        month: 5,
+        month: 4,
         day: 10,
-        hour: 12,
-        minute: 30,
+        time: '10:30',
         location: "Warszawa",
         descritpion: "Zjazd miłośników szczupaków"
     },
     {
         year: 2023,
-        month: 5,
+        month: 4,
         day: 7,
-        hour: 12,
-        minute: 30,
-        location: "Warszawa",
+        time: '12:00',
+        location: "Lublin",
         descritpion: "Targi producentów żyłek"
+    },
+    {
+        year: 2023,
+        month: 4,
+        day: 22,
+        time: '19:00',
+        location: "Zamość",
+        descritpion: "Zjazd fanatyków wędkarstwa"
+    },
+    {
+        year: 2023,
+        month: 5,
+        day: 17,
+        time: '10:30',
+        location: "Lublin",
+        descritpion: "Targi producentów wędzisk"
+    },
+    {
+        year: 2023,
+        month: 6,
+        day: 10,
+        time: '13:30',
+        location: "Poznań",
+        descritpion: "Targi producentów przynęt"
     },
 ];
 
@@ -60,6 +82,7 @@ $(document).ready(function () {
     getCurrentDate();
     updateCalendar();
     updateCalendarTitle();
+    updateEvents()
 });
 
 
@@ -94,7 +117,7 @@ function updateCalendar() {
         weekday = (firstDayOfWeekInMonth + i) % 7;
         calendar += `<div class="day ${(weekday > 4 ? "weekend" : "")} ${(dayOfMonth == i + 1) && (month == currentMonth) ? "today" : ""}">
                         <div class="dayname">${dayNames[weekday]}</div>
-                        <div class="daynumber ${checkIfEventPresent(year, month + 1, i + 1) ? "eventday" : ""}">${i + 1}</div>
+                        <div class="daynumber ${checkIfEventPresent(year, month, i + 1) ? "eventday" : ""}">${i + 1}</div>
                     </div>`
     }
     cal.innerHTML = calendar;
@@ -126,6 +149,7 @@ function previousMonth() {
     }
     updateCalendar();
     updateCalendarTitle();
+    updateEvents()
 }
 
 function nextMonth() {
@@ -138,4 +162,31 @@ function nextMonth() {
     }
     updateCalendar();
     updateCalendarTitle();
+    updateEvents()
+}
+
+
+function updateEvents() {
+    var ev = document.getElementById('events');
+    var eventsInMonth = [];
+    for (let i = 0; i < events.length; i++) {
+        if (events[i].month == month && events[i].year == year) {
+            eventsInMonth.push(events[i]);
+        }
+    }
+
+    var eventsElements = "";
+    for (let i = 0; i < eventsInMonth.length; i++) {
+        eventsElements +=
+            `<div class="event">
+                <img src="img\\sea-fish-drawing.png" class="event_fish">
+                <div>
+                    <b>${eventsInMonth[i].day} ${months[month].toLowerCase()} ${year}</b>
+                    - <u>${eventsInMonth[i].location}</u>
+                    <b>${eventsInMonth[i].time}</b>
+                    - ${eventsInMonth[i].descritpion}
+                </div>
+            </div>`
+    }
+    ev.innerHTML = eventsElements;
 }
