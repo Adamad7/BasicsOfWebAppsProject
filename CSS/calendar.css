@@ -47,6 +47,11 @@ h2 {
     border-radius: 10px;
     color: #E6E6E6;
     font-size: 1.5em;
+    border: 3px solid #001E42;
+}
+
+.calendar_nav_button:hover {
+    background-color: #55A630;
 }
 
 #calendar_nav_title {
