@@ -43,65 +43,97 @@
         </div>
         <div id="newsletter_form">
             <form>
-                <div>
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email">
-                </div>
+                <fieldset>
+                    <legend>E-mail</legend>
+                    <input type="email" id="email" required>
+                </fieldset>
 
-                <div>
-                    <label for="name">Imię</label>
-                    <input type="text" id="name">
-                </div>
+                <fieldset>
+                    <legend>Imię</legend>
+                    <input type="text" id="name" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Częstotliwość</legend>
+                    <div>
+                        <input type="radio" name="frequency" id="freq_1">
+                        <label for="freq_1">Codziennie</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="frequency" id="freq_2">
+                        <label for="freq_2">2 razy w tygodniu</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="frequency" id="freq_3">
+                        <label for="freq_3">Raz w tygodniu</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="frequency" id="freq_4">
+                        <label for="freq_4">Raz na dwa tygodnie</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="frequency" id="freq_5">
+                        <label for="freq_5">Raz na miesiąc</label>
+                    </div>
+                </fieldset>
 
 
-                <div>
-                    <label for="freq_1">Codziennie</label>
-                    <input type="radio" name="frequency" id="freq_1">
-                    <label for="freq_2">2 razy w tygodniu</label>
-                    <input type="radio" name="frequency" id="freq_2">
-                    <label for="freq_3">Raz w tygodniu</label>
-                    <input type="radio" name="frequency" id="freq_3">
-                    <label for="freq_4">Raz na dwa tygodnie</label>
-                    <input type="radio" name="frequency" id="freq_4">
-                    <label for="freq_5">Raz na miesiąc</label>
-                    <input type="radio" name="frequency" id="freq_5">
-                </div>
+                <fieldset>
+                    <legend>Tematy</legend>
+                    <div>
+                        <input type="checkbox" class="subjects" id="trip_reports">
+                        <label for="trip_reports">Relacje z wypraw</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="subjects" id="shop_sales">
+                        <label for="shop_sales">Promocje w sklepie</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="subjects" id="guides">
+                        <label for="guides">Poradniki</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="subjects" id="events">
+                        <label for="events">Wydarzenia</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" class="subjects" id="news">
+                        <label for="news">Wiadomości</label>
+                    </div>
+                </fieldset>
 
+                <fieldset>
+                    <legend>Ulubiony typ wędkowania</legend>
+                    <div>
+                        <input type="radio" name="fav_fishing_type" id="float">
+                        <label for="float">Spławik</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="fav_fishing_type" id="spinning">
+                        <label for="spinning">Spinning</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="fav_fishing_type" id="ground">
+                        <label for="ground">Gruntowe</label>
+                    </div>
+                </fieldset>
 
-                <div>
-                    <label for="trip_reports">Relacje z wypraw</label>
-                    <input type="checkbox" class="subjects" id="trip_reports">
-                    <label for="shop_sales">Promocje w sklepie</label>
-                    <input type="checkbox" class="subjects" id="shop_sales">
-                    <label for="guides">Poradniki</label>
-                    <input type="checkbox" class="subjects" id="guides">
-                    <label for="events">Wydarzenia</label>
-                    <input type="checkbox" class="subjects" id="events">
-                    <label for="news">Wiadomości</label>
-                    <input type="checkbox" class="subjects" id="news">
-                </div>
-
-                <div>
-                    <label for="float">Spławik</label>
-                    <input type="radio" name="fav_fishing_type" id="float">
-                    <label for="spinning">Spinning</label>
-                    <input type="radio" name="fav_fishing_type" id="spinning">
-                    <label for="ground">Gruntowe</label>
-                    <input type="radio" name="fav_fishing_type" id="ground">
-                </div>
-
-                <div>
+                <fieldset>
+                    <legend>Uwagi</legend>
                     <textarea cols="40" rows="4"></textarea>
-                </div>
+                </fieldset>
 
-                <div>
-                    <input type="checkbox" id="rodo">
+
+                <div id="rodo_section">
+                    <input type="checkbox" id="rodo" required>
                     <label for="rodo">
                         Wyrażam zgodę na przetwarzanie moich danych osobowych w celu
                         otrzymywania newslettera
                     </label>
                 </div>
 
+
+                <input type="submit" value="Zapisz mnie!" id="submit_button">
 
             </form>
         </div>
