@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/newsletter.css">
+    <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+
     <script src="JS/newsletter.js"></script>
 </head>
 
@@ -43,7 +45,7 @@
             <img id="index_page_fish" src="img\sea-fish-drawing.png" alt="ryba">
         </div>
         <div id="newsletter_form">
-            <form action="mailto:s97676@pollub.edu.pl" method="post" onsubmit="return checkIfDataCorrect()">
+            <form action="mailto:s97676@pollub.edu.pl" method="post" onsubmit="return subscribe()">
                 <fieldset>
                     <legend>E-mail</legend>
                     <div class="form_elements">
@@ -153,7 +155,7 @@
 
                 <fieldset>
                     <legend>Uwagi</legend>
-                    <textarea rows="4"></textarea>
+                    <textarea rows="4" id="comments"></textarea>
                 </fieldset>
 
 

@@ -1,4 +1,12 @@
-function checkIfDataCorrect() {
+function subscribe() {
+    if (isDataCorrect()) {
+        saveData();
+    }
+    return false;
+}
+
+
+function isDataCorrect() {
     var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     var nameRegex = /^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,30}$/;
 
@@ -51,8 +59,6 @@ function checkIfDataCorrect() {
         errorFav.textContent = '';
     }
 
-    console.log("AAAA");
-
     return ok;
 }
 
@@ -74,4 +80,76 @@ function isBoxCorrect(className) {
         if (box[i].checked) return true;
     }
     return false;
+}
+
+
+function saveData() {
+    var subscriber = {
+        email: getText('email'),
+        name: getText('name'),
+        frequency: getRadio('frequency'),
+        subjects: getBox('subjects'),
+        favFishing: getRadio('fav_fishing_type'),
+        comments: getText('comments'),
+        rodo: getRodo()
+    }
+
+    var subscribersList = [];
+    subscribersList = JSON.parse(localStorage.getItem('newsletter_subscribers'));
+    if (subscribersList === null) {
+        subscribersList = [];
+    }
+
+    if (!isAlreadySubscribed(subscriber, subscribersList)) {
+        subscribersList.push(subscriber);
+        localStorage.setItem('newsletter_subscribers', JSON.stringify(subscribersList));
+    }
+    else {
+        alert("Na podany adres email wysyłamy już newsletter");
+    }
+
+}
+
+function isAlreadySubscribed(subscriber, subscribersList) {
+    for (let i = 0; i < subscribersList.length; i++) {
+        if (subscribersList[i].email == subscriber.email) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function getText(id) {
+    return document.getElementById(id).value;
+}
+
+function getRadio(name) {
+    var radio = document.getElementsByName(name);
+    for (let i = 0; i < radio.length; i++) {
+        if (radio[i].checked) {
+            console.log($(`label[for=${radio[i].id}]`).text());
+            return $(`label[for=${radio[i].id}]`).text();
+
+        }
+    }
+    return null;
+}
+
+function getBox(className) {
+    var box = document.getElementsByClassName(className);
+    var checkedId = [];
+    for (let i = 0; i < box.length; i++) {
+        if (box[i].checked) {
+            checkedId.push(box[i].id);
+        }
+    }
+    var labels = [];
+    for (let i = 0; i < checkedId.length; i++) {
+        labels.push($(`label[for=${checkedId[i]}]`).text());
+    }
+    return labels;
+}
+
+function getRodo() {
+    return document.getElementById('rodo').checked;
 }
