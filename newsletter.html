@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/newsletter.css">
+    <script src="JS/newsletter.js"></script>
 </head>
 
 <body>
@@ -42,90 +43,123 @@
             <img id="index_page_fish" src="img\sea-fish-drawing.png" alt="ryba">
         </div>
         <div id="newsletter_form">
-            <form>
+            <form action="mailto:s97676@pollub.edu.pl" method="post" onsubmit="return checkIfDataCorrect()">
                 <fieldset>
                     <legend>E-mail</legend>
-                    <input type="email" id="email" required>
+                    <div class="form_elements">
+                        <input type="email" id="email" required
+                            patter="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                            title="Wpisz poprawny adres email">
+                    </div>
+                    <div class="error_space" id="error_email">
+
+                    </div>
                 </fieldset>
 
                 <fieldset>
                     <legend>Imię</legend>
-                    <input type="text" id="name" required>
+                    <div class="form_elements">
+                        <input type="text" id="name" required pattern="^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]{1,30}$"
+                            title="Wpisz poprawne imię">
+                    </div>
+                    <div class="error_space" id="error_name">
+
+                    </div>
+
                 </fieldset>
 
                 <fieldset>
                     <legend>Częstotliwość</legend>
-                    <div>
-                        <input type="radio" name="frequency" id="freq_1">
-                        <label for="freq_1">Codziennie</label>
+                    <div class="form_elements">
+                        <div>
+                            <input type="radio" name="frequency" id="freq_1" required>
+                            <label for="freq_1">Codziennie</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="frequency" id="freq_2">
+                            <label for="freq_2">2 razy w tygodniu</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="frequency" id="freq_3">
+                            <label for="freq_3">Raz w tygodniu</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="frequency" id="freq_4">
+                            <label for="freq_4">Raz na dwa tygodnie</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="frequency" id="freq_5">
+                            <label for="freq_5">Raz na miesiąc</label>
+                        </div>
                     </div>
-                    <div>
-                        <input type="radio" name="frequency" id="freq_2">
-                        <label for="freq_2">2 razy w tygodniu</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="frequency" id="freq_3">
-                        <label for="freq_3">Raz w tygodniu</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="frequency" id="freq_4">
-                        <label for="freq_4">Raz na dwa tygodnie</label>
-                    </div>
-                    <div>
-                        <input type="radio" name="frequency" id="freq_5">
-                        <label for="freq_5">Raz na miesiąc</label>
+
+                    <div class="error_space" id="error_frequency">
+
                     </div>
                 </fieldset>
 
 
                 <fieldset>
                     <legend>Tematy</legend>
-                    <div>
-                        <input type="checkbox" class="subjects" id="trip_reports">
-                        <label for="trip_reports">Relacje z wypraw</label>
+                    <div class="form_elements">
+                        <div>
+                            <input type="checkbox" class="subjects" id="trip_reports">
+                            <label for="trip_reports">Relacje z wypraw</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="subjects" id="shop_sales">
+                            <label for="shop_sales">Promocje w sklepie</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="subjects" id="guides">
+                            <label for="guides">Poradniki</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="subjects" id="events">
+                            <label for="events">Wydarzenia</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="subjects" id="news">
+                            <label for="news">Wiadomości</label>
+                        </div>
                     </div>
-                    <div>
-                        <input type="checkbox" class="subjects" id="shop_sales">
-                        <label for="shop_sales">Promocje w sklepie</label>
+                    <div class="error_space" id="error_subjects">
+
                     </div>
-                    <div>
-                        <input type="checkbox" class="subjects" id="guides">
-                        <label for="guides">Poradniki</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" class="subjects" id="events">
-                        <label for="events">Wydarzenia</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" class="subjects" id="news">
-                        <label for="news">Wiadomości</label>
-                    </div>
+
                 </fieldset>
 
                 <fieldset>
                     <legend>Ulubiony typ wędkowania</legend>
-                    <div>
-                        <input type="radio" name="fav_fishing_type" id="float">
-                        <label for="float">Spławik</label>
+                    <div class="form_elements">
+                        <div>
+                            <input type="radio" name="fav_fishing_type" id="float" required>
+                            <label for="float">Spławik</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="fav_fishing_type" id="spinning">
+                            <label for="spinning">Spinning</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="fav_fishing_type" id="ground">
+                            <label for="ground">Gruntowe</label>
+                        </div>
                     </div>
-                    <div>
-                        <input type="radio" name="fav_fishing_type" id="spinning">
-                        <label for="spinning">Spinning</label>
+                    <div class="error_space" id="error_fav_fishing_type">
+
                     </div>
-                    <div>
-                        <input type="radio" name="fav_fishing_type" id="ground">
-                        <label for="ground">Gruntowe</label>
-                    </div>
+
                 </fieldset>
 
                 <fieldset>
                     <legend>Uwagi</legend>
-                    <textarea cols="40" rows="4"></textarea>
+                    <textarea rows="4"></textarea>
                 </fieldset>
 
 
                 <div id="rodo_section">
-                    <input type="checkbox" id="rodo" required>
+                    <input type="checkbox" id="rodo" required
+                        title="Aby otrzymywać newsletter musisz wyrazić zgodę na przetwarzanie danych osobowych">
                     <label for="rodo">
                         Wyrażam zgodę na przetwarzanie moich danych osobowych w celu
                         otrzymywania newslettera

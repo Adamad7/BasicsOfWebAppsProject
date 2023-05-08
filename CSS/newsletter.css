@@ -23,16 +23,32 @@ fieldset {
     border: 2px solid #001E42;
     border-radius: 15px;
     margin-block: 10px;
+    display: flex;
+    flex-direction: row;
 }
 
-fieldset>div {
+.form_elements {
+    width: 50%;
+}
+
+.error_space {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    font-weight: bold;
+}
+
+
+.form_elements>div {
     margin-block: 5px;
     font-size: 15px;
     display: flex;
     flex-direction: row;
 }
 
-fieldset>div>label {
+.form_elements>div>label {
     margin-left: 5px;
 }
 
@@ -47,6 +63,7 @@ legend {
     padding-block: 5px;
     background-color: #6A99B6;
 }
+
 
 #rodo_section {
     display: flex;
