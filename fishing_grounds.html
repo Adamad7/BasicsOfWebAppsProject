@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pstrągarnia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/fishing_grounds.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <script src="JS/fishing_grounds.js"></script>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html">Strona główna</a>
+        <a href="shop.html">Sklep</a>
+        <a href="#news">Poradniki</a>
+        <div class="dropdown">
+            <button class="dropbtn">Niezbędnik
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#">Atlas</a>
+                <a href="fishing_grounds.html">Łowiska</a>
+                <a href="calendar.html">Kalendarz</a>
+            </div>
+        </div>
+        <a href="newsletter.html">Newsletter</a>
+        <a href="#news">Źródła</a>
+    </nav>
+
+    <main>
+
+        <div id="grounds">
+            <div id="details">
+                <h2 id="ground_name">Wybierz łowisko</h2>
+                <div class="ground_detail">
+                    <div class="ground_detail_name">Wojedwództwo</div>
+                    <div class="ground_detail_desc" id="ground_voivodeship"></div>
+                </div>
+                <div class="ground_detail">
+                    <div class="ground_detail_name">Gatunki ryb</div>
+                    <div class="ground_detail_desc" id="ground_spieces"></div>
+                </div>
+                <div class="ground_detail">
+                    <div class="ground_detail_name">Powierzchnia (ha)</div>
+                    <div class="ground_detail_desc" id="ground_area"></div>
+                </div>
+                <div class="ground_detail">
+                    <div class="ground_detail_name">Łowienie nocą</div>
+                    <div class="ground_detail_desc" id="ground_night_fishing"></div>
+                </div>
+                <div class="ground_detail">
+                    <div class="ground_detail_name">Rozbicie namiotu</div>
+                    <div class="ground_detail_desc" id="ground_tent"></div>
+                </div>
+                <div class="ground_detail">
+                    <div class="ground_detail_name">Nocleg</div>
+                    <div class="ground_detail_desc" id="ground_accommodation"></div>
+                </div>
+                <div class="ground_detail">
+                    <div class="ground_detail_name">Spinning</div>
+                    <div class="ground_detail_desc" id="ground_spinning"></div>
+                </div>
+            </div>
+            <div id="grounds_map">
+                <div id="map"></div>
+                <div id="map_buttons">
+                    <button class="map_button">Najbliże łowisko</button>
+                    <div id="map_buttons_divider"></div>
+                    <button class="map_button">Moja lokalizacja</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        &copy Adam Mazur
+    </footer>
+</body>
+
+</html>
