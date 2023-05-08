@@ -148,26 +148,91 @@ var grounds = [
     },
 ]
 
+var map;
+
+$(document).ready(function () {
+    initMap();
+
+});
+
+function initMap() {
+    if (navigator.geolocation) {
+        var options = { timeout: 60000 };
+        navigator.geolocation.getCurrentPosition(
+            showLocation,
+            errorHandler,
+            options);
+    } else { alert("Twoja przeglądarka nie wspiera geolokalizacji!"); }
+}
+
+function panToCurrentLocation() {
+    if (navigator.geolocation) {
+        var options = { timeout: 60000 };
+        navigator.geolocation.getCurrentPosition(
+            showMyLocation,
+            errorHandler,
+            options);
+    } else { alert("Twoja przeglądarka nie wspiera geolokalizacji!"); }
+}
+function showMyLocation(position) {
+    map.flyTo([position.coords.latitude, position.coords.longitude], 11);
+}
+
 function showLocation(position) {
-    var latitude = position.coords.latitude;
+    var latitide = position.coords.latitude;
     var longitude = position.coords.longitude;
-    var map = L.map('map').setView([latitude, longitude], 13);
+    map = L.map('map').setView([latitide, longitude], 11);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
-    // var output = document.getElementById("geo");
-    // output.innerHTML = "<p>Szerokość geograficzna: " + latitude +
-    //     "</p>";
-    // output.innerHTML = `<p>Szerokość geograficzna: ${latitude}</p>
-    //                             <p>Długość geograficzna: ${longitude}</p>`;
-    // L.marker([51.5, -0.09]).addTo(map)
-    //     .bindPopup('A pretty CSS popup.<br> Easily customizable.').on('click', onMapClick);
-    // L.marker([51.5, -0.09]).addTo(map)
-    //     .bindPopup('A pretty CSS popup.<br> Easily customizable.').on('click', onMapClick);
     addFishingGroundsMarkers(map);
-    // map.on('click', onMapClick);
+    var redIcon = L.icon({
+        iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        tooltipAnchor: [16, -28],
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        shadowSize: [41, 41],
+        shadowAnchor: [12, 41]
+    });
+    L.marker([latitide, longitude], { icon: redIcon }).addTo(map)
+        .bindPopup('Moja lokalizacja');
 }
+
+function findClosestFishingGround() {
+    if (navigator.geolocation) {
+        var options = { timeout: 60000 };
+        navigator.geolocation.getCurrentPosition(
+            closestGround,
+            errorHandler,
+            options);
+    }
+    else if (grounds.length == 0) {
+        return null;
+    } else { alert("Twoja przeglądarka nie wspiera geolokalizacji!"); }
+}
+
+function closestGround(position) {
+    var latitide = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    var closestDistance = (grounds[0].lat - latitide) ** 2 +
+        (grounds[0].lng - longitude) ** 2;
+    var closestId = 0;
+    for (let i = 1; i < grounds.length; i++) {
+        var distance =
+            (grounds[i].lat - latitide) ** 2 +
+            (grounds[i].lng - longitude) ** 2;
+        if (distance < closestDistance) {
+            closestDistance = distance;
+            closestId = i;
+        }
+    }
+    map.flyTo([grounds[closestId].lat, grounds[closestId].lng], 11);
+
+}
+
 
 function addFishingGroundsMarkers(map) {
 
@@ -181,7 +246,6 @@ function addFishingGroundsMarkers(map) {
 
 function updateGroundDetails(e) {
     var ground = grounds.find(element => element.lat == e.latlng.lat && element.lng == e.latlng.lng);
-    console.log(ground);
     var species = '';
     for (let i = 0; i < ground.species.length - 1; i++) {
         species += ground.species[i] + ', ';
@@ -219,15 +283,3 @@ function errorHandler(error) {
     }
 }
 
-$(document).ready(function () {
-    getLocation();
-});
-function getLocation() {
-    if (navigator.geolocation) {
-        var options = { timeout: 60000 };
-        navigator.geolocation.getCurrentPosition(
-            showLocation,
-            errorHandler,
-            options);
-    } else { alert("Twoja przeglądarka nie wspiera geolokalizacji!"); }
-}

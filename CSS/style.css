@@ -119,12 +119,16 @@ h2 {
     font-size: 1.2em;
     background-color: #4F75A7;
     display: block;
-    width: 70%;
+    /* width: 70%; */
     border: 3px solid #001E42;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 
+}
+
+h2.index_title {
+    width: 70%;
 }
 
 h3 {
