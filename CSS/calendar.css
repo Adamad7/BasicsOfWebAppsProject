@@ -1,19 +1,30 @@
-main {
+#events_calendar {
     display: flex;
     flex-direction: row;
-    padding-top: 40px;
+    margin-top: 40px;
+    justify-content: space-around;
+}
+
+
+
+#left_panel {
+    width: 50%;
+    /* background-color: red; */
+    margin-right: 40px;
+
 }
 
 h2.calendar_title {
     margin-top: 0;
-    width: 60%;
+    width: 70%;
 }
 
 
 #events {
     /* width: 100%; */
     padding-top: 10px;
-    padding-right: 30px;
+    /* padding-right: 30px; */
+    padding-left: 30px;
     /* background-color: green; */
 }
 
@@ -22,6 +33,7 @@ h2.calendar_title {
     flex-direction: row;
     align-items: center;
     margin-block: 15px;
+    /* background-color: green; */
 }
 
 .event img {
@@ -129,4 +141,119 @@ h2.calendar_title {
 
 .invisible * {
     display: none;
+}
+
+@media screen and (max-width: 1024px) {
+    #left_panel {
+        margin-right: 10px;
+    }
+
+    #events {
+        padding-left: 0;
+    }
+
+    .event {
+        font-size: 0.9em;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    #events_calendar {
+        flex-direction: column-reverse;
+        margin-top: 40px;
+        /* justify-content: space-around; */
+        align-items: center;
+
+    }
+
+    #left_panel {
+        margin-top: 30px;
+        width: 90%;
+
+    }
+
+    #events {
+        padding-left: 10px;
+
+    }
+
+    .event {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    #calendar_nav {
+        width: 210px;
+        height: 40px;
+        margin-bottom: 0
+    }
+
+    .calendar_nav_button {
+        width: 30px;
+        height: 30px;
+        font-size: 1.1em;
+    }
+
+    #calendar_nav_title {
+        width: 150px;
+        font-size: 1.1em;
+    }
+
+
+    #calendar_days {
+        width: 210px;
+    }
+
+    .day {
+        width: 22px;
+        height: 35px;
+        margin: 2px;
+        border-radius: 6px;
+    }
+
+    .dayname {
+        height: 20px;
+        font-size: 11px;
+    }
+
+    .daynumber {
+        height: 100%;
+        font-size: 1em;
+    }
+
+    .eventday {
+        margin: 2px;
+        background-color: #6A99B6;
+    }
+
+    .today .daynumber {
+        margin: 1px;
+        border: 2px solid #001E42;
+    }
+
+    h2.calendar_title {
+        margin-bottom: 0;
+        font-size: 1.1em;
+    }
+
+    #left_panel {
+        margin-top: 20px;
+    }
+
+    #events_calendar {
+        margin-top: 20px;
+    }
+
+    #events {
+        padding-left: 0;
+        padding-top: 0;
+    }
+
+    .event {
+        margin-block: 15px;
+        font-size: 0.9em;
+
+    }
 }
