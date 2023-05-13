@@ -150,6 +150,9 @@ var grounds = [
 
 var map;
 
+var weatherLat;
+var weatherLng;
+
 $(document).ready(function () {
     initMap();
 
@@ -181,6 +184,8 @@ function showMyLocation(position) {
 function showLocation(position) {
     var latitide = position.coords.latitude;
     var longitude = position.coords.longitude;
+    weatherLat = latitide;
+    weatherLng = longitude;
     map = L.map('map').setView([latitide, longitude], 11);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -251,6 +256,8 @@ function updateGroundDetails(e) {
         species += ground.species[i] + ', ';
     }
     species += ground.species[ground.species.length - 1];
+    weatherLat = e.latlng.lat;
+    weatherLng = e.latlng.lng;
     document.getElementById('ground_name').innerHTML = ground.name;
     document.getElementById('ground_voivodeship').textContent = ground.voivodeship;
     document.getElementById('ground_spieces').innerHTML = species;
@@ -281,5 +288,144 @@ function errorHandler(error) {
             output.innerHTML = "Wystąpił nieznany błąd.";
             break;
     }
+}
+
+
+
+
+
+function checkWeather() {
+    fetch(`https://api.open-meteo.com/v1/forecast?latitude=${weatherLat}&longitude=${weatherLng}&timezone=auto&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum`)
+        .then(response => response.json())
+        .then(data => {
+            updateWeatherElement(data);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+
+}
+
+function extractDayName(date) {
+    days = {
+        0: 'Nd',
+        1: 'Pn',
+        2: 'Wt',
+        3: 'Śr',
+        4: 'Cz',
+        5: 'Pt',
+        6: 'Sb'
+    }
+    dayNumber = new Date(date).getDay();
+    return days[dayNumber];
+}
+
+function getWeatherIcon(weatherCode) {
+    // clear sky - <i class="fa-solid fa-sun"></i>
+    // partly cloudy - <i class="fa-solid fa-cloud-sun"></i>
+    // fog - <i class="fa-solid fa-smog"></i>
+    // drizle - <i class="fa-solid fa-cloud-sun-rain"></i>
+    // rain - <i class="fa-solid fa-cloud-rain"></i>
+    // freezing rain - <i class="fa-solid fa-cloud-showers-water"></i>
+    // snow fall, snow grains - <i class="fa-regular fa-snowflake"></i>
+    // rain showers - <i class="fa-solid fa-cloud-showers-heavy"></i>
+    // snow showers - <i class="fa-solid fa-snowflake"></i>
+    // thunderstorm, with hail - <i class="fa-solid fa-cloud-bolt"></i>
+
+    icons = {
+        0: `<i class="fa-solid fa-sun"></i>`,
+        1: `<i class="fa-solid fa-cloud-sun"></i>`,
+        2: `<i class="fa-solid fa-cloud-sun"></i>`,
+        3: `<i class="fa-solid fa-cloud-sun"></i>`,
+        45: `<i class="fa-solid fa-smog"></i>`,
+        48: `<i class="fa-solid fa-smog"></i>`,
+        51: `<i class="fa-solid fa-cloud-sun-rain"></i>`,
+        52: `<i class="fa-solid fa-cloud-sun-rain"></i>`,
+        53: `<i class="fa-solid fa-cloud-sun-rain"></i>`,
+        56: `<i class="fa-solid fa-cloud-showers-water"></i>`,
+        57: `<i class="fa-solid fa-cloud-showers-water"></i>`,
+        61: `<i class="fa-solid fa-cloud-rain"></i>`,
+        63: `<i class="fa-solid fa-cloud-rain"></i>`,
+        65: `<i class="fa-solid fa-cloud-rain"></i>`,
+        66: `<i class="fa-solid fa-cloud-showers-water"></i>`,
+        67: `<i class="fa-solid fa-cloud-showers-water"></i>`,
+        71: `<i class="fa-regular fa-snowflake"></i>`,
+        73: `<i class="fa-regular fa-snowflake"></i>`,
+        75: `<i class="fa-regular fa-snowflake"></i>`,
+        77: `<i class="fa-regular fa-snowflake"></i>`,
+        80: `<i class="fa-solid fa-cloud-showers-heavy"></i>`,
+        81: `<i class="fa-solid fa-cloud-showers-heavy"></i>`,
+        82: `<i class="fa-solid fa-cloud-showers-heavy"></i>`,
+        85: `<i class="fa-solid fa-snowflake"></i>`,
+        86: `<i class="fa-solid fa-snowflake"></i>`,
+        95: `<i class="fa-solid fa-cloud-bolt"></i>`,
+        96: `<i class="fa-solid fa-cloud-bolt"></i>`,
+        99: `<i class="fa-solid fa-cloud-bolt"></i>`,
+    }
+
+    return icons[weatherCode];
+}
+
+function extractTime(datetime) {
+    var date = new Date(datetime);
+    return `${date.getHours()}:${date.getMinutes()}`;
+}
+
+function updateWeatherElement(weather) {
+    console.log(weather);
+
+    // console.log(weather.daily.time.length);
+    // console.log(new Date(weather.daily.sunrise[0]).getDay());
+    // console.log(new Date(weather.daily.sunrise[0]).getHours());
+    var days = "";
+    for (let i = 0; i < weather.daily.time.length; i++) {
+        var day = extractDayName(weather.daily.time[i]);
+        var icon = getWeatherIcon(weather.daily.weathercode[i]);
+        var sunrise = extractTime(weather.daily.sunrise[i]);
+        var sunset = extractTime(weather.daily.sunset[i]);
+        var maxT = weather.daily.temperature_2m_max[i];
+        var minT = weather.daily.temperature_2m_min[i];
+        var precipitation = weather.daily.precipitation_sum[i];
+        days += `<div class="day_weather">
+            <div class="weather_dayname">${day}</div>
+            <div class="weather_icon">${icon}</i></div>
+            <div class="weather_details">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><span><i class="fa-solid fa-sun"></i></td>
+                            <td>Wsch.</td>
+                            <td>${sunrise}</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa-regular fa-sun"></i></td>
+                            <td>Zach.</td>
+                            <td>${sunset}</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa-solid fa-temperature-full"></i></td>
+                            <td>Max T.</td>
+                            <td>${maxT} &degC</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa-solid fa-temperature-empty"></i></td>
+                            <td>Min T.</td>
+                            <td>${minT} &degC</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa-solid fa-umbrella"></i></td>
+                            <td>Opady</td>
+                            <td>${precipitation}mm</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>`
+
+    }
+
+    // console.log(days);
+
+    document.getElementById('weather_forecast').innerHTML = days;
 }
 

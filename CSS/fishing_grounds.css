@@ -4,25 +4,21 @@
     /* background-color: red; */
 }
 
-#weather {
-    height: 300px;
-    border: 2px solid green;
-}
-
 #check_weather_button {
     border: none;
     outline: none;
     margin: 0;
     background-color: #6A99B6;
-    width: 300px;
-    height: 50px;
+    width: 200px;
+    height: 40px;
     border-radius: 15px;
     border: 2px solid #001E42;
-    font-size: 1.2em;
+    font-size: 1.1em;
     margin-left: auto;
     margin-right: auto;
     display: block;
     margin-top: 20px;
+    margin-bottom: 20px
 }
 
 #check_weather_button:hover {
@@ -32,14 +28,17 @@
 #weather_forecast {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 .day_weather {
+    min-width: 100px;
     width: 100px;
     height: 167px;
     border-radius: 15px;
     border: 3px solid #001E42;
     overflow: hidden;
+    margin-inline: 5px;
 }
 
 .weather_dayname {
@@ -59,17 +58,14 @@
     align-items: center;
     justify-content: center;
     height: 50px;
+    color: #4F75A7;
 }
 
 .weather_details {
     height: 90px;
     display: flex;
     flex-direction: column;
-    /* justify-content: end; */
-    /* padding-inline: 5px; */
-    /* padding-top: 8px; */
     border-top: 3px solid #001E42;
-    /* background-color: red; */
     font-size: 0.8em;
 }
 
@@ -79,6 +75,7 @@
 
 .weather_details>table tr td:first-child {
     text-align: center;
+    font-size: 10px;
     /* background-color: blue; */
 }
 
@@ -90,19 +87,10 @@
 
 .weather_details>table tr td:last-child {
     text-align: right;
-    /* background-color: blue; */
+    font-size: 12px;
+    /* background-color: green; */
 }
 
-/* .weather_details>div {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8em;
-}
-
-.weather_details>div+span {
-    color: red;
-    font-size: 0.5em;
-} */
 
 
 
@@ -205,4 +193,100 @@
     height: 40px;
     width: 63%;
     overflow-y: hidden;
+}
+
+
+@media screen and (max-width: 1024px) {
+    #grounds {
+        display: flex;
+        flex-direction: column;
+        padding-top: 40px;
+    }
+
+    #grounds h2 {
+        width: 400px;
+    }
+
+    #details {
+        /* display: flex; */
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+        /* margin-right: 20px; */
+    }
+
+    .ground_detail {
+        width: 47%;
+        height: 40px;
+        border-radius: 15px;
+        border: 2px solid #001E42;
+        margin-block-end: 10px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+    }
+
+
+    #grounds_map {
+        height: 426px;
+        min-width: 250px;
+        width: 100%;
+        border-radius: 20px;
+        border: 3px solid #001E42;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    #weather_forecast {
+        justify-content: left;
+        flex-wrap: wrap;
+    }
+
+    .day_weather {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    #grounds h2 {
+        width: 200px;
+    }
+
+    #details {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .ground_detail {
+        width: 90%;
+    }
+
+
+    #grounds_map {
+        min-width: 200px;
+    }
+
+    #weather {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #weather_forecast {
+        width: 232px;
+        justify-content: center;
+        /* align-items: center; */
+        flex-wrap: wrap;
+    }
+
+    .day_weather {
+        margin-bottom: 10px;
+    }
 }
