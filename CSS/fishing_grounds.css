@@ -1,3 +1,113 @@
+#grounds_and_weather_container {
+    display: flex;
+    flex-direction: column;
+    /* background-color: red; */
+}
+
+#weather {
+    height: 300px;
+    border: 2px solid green;
+}
+
+#check_weather_button {
+    border: none;
+    outline: none;
+    margin: 0;
+    background-color: #6A99B6;
+    width: 300px;
+    height: 50px;
+    border-radius: 15px;
+    border: 2px solid #001E42;
+    font-size: 1.2em;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 20px;
+}
+
+#check_weather_button:hover {
+    background-color: #55A630;
+}
+
+#weather_forecast {
+    display: flex;
+    flex-direction: row;
+}
+
+.day_weather {
+    width: 100px;
+    height: 167px;
+    border-radius: 15px;
+    border: 3px solid #001E42;
+    overflow: hidden;
+}
+
+.weather_dayname {
+    height: 20px;
+    background-color: #001E42;
+    color: #E6E6E6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.weather_icon {
+    font-size: 2.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+
+.weather_details {
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: end; */
+    /* padding-inline: 5px; */
+    /* padding-top: 8px; */
+    border-top: 3px solid #001E42;
+    /* background-color: red; */
+    font-size: 0.8em;
+}
+
+.weather_details>table td {
+    margin: 0;
+}
+
+.weather_details>table tr td:first-child {
+    text-align: center;
+    /* background-color: blue; */
+}
+
+.weather_details>table tr td:nth-child(2) {
+    font-size: 11px;
+    /* text-align: center; */
+    /* background-color: blue; */
+}
+
+.weather_details>table tr td:last-child {
+    text-align: right;
+    /* background-color: blue; */
+}
+
+/* .weather_details>div {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+}
+
+.weather_details>div+span {
+    color: red;
+    font-size: 0.5em;
+} */
+
+
+
+
+
 #grounds {
     display: flex;
     flex-direction: row;

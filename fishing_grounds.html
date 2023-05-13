@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pstrągarnia</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/fishing_grounds.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
@@ -22,7 +23,7 @@
     <nav>
         <a href="index.html">Strona główna</a>
         <a href="shop.html">Sklep</a>
-        <a href="#news">Poradniki</a>
+        <a href="#news">Blog</a>
         <div class="dropdown">
             <button class="dropbtn">Niezbędnik
                 <i class="fa fa-caret-down"></i>
@@ -38,45 +39,97 @@
     </nav>
 
     <main>
+        <div id="grounds_and_weather_container">
 
-        <div id="grounds">
-            <div id="details">
-                <h2 id="ground_name">Wybierz łowisko</h2>
-                <div class="ground_detail">
-                    <div class="ground_detail_name">Wojedwództwo</div>
-                    <div class="ground_detail_desc" id="ground_voivodeship"></div>
+            <div id="grounds">
+                <div id="details">
+                    <h2 id="ground_name">Wybierz łowisko</h2>
+                    <div class="ground_detail">
+                        <div class="ground_detail_name">Wojedwództwo</div>
+                        <div class="ground_detail_desc" id="ground_voivodeship"></div>
+                    </div>
+                    <div class="ground_detail">
+                        <div class="ground_detail_name">Gatunki ryb</div>
+                        <div class="ground_detail_desc" id="ground_spieces"></div>
+                    </div>
+                    <div class="ground_detail">
+                        <div class="ground_detail_name">Powierzchnia (ha)</div>
+                        <div class="ground_detail_desc" id="ground_area"></div>
+                    </div>
+                    <div class="ground_detail">
+                        <div class="ground_detail_name">Łowienie nocą</div>
+                        <div class="ground_detail_desc" id="ground_night_fishing"></div>
+                    </div>
+                    <div class="ground_detail">
+                        <div class="ground_detail_name">Rozbicie namiotu</div>
+                        <div class="ground_detail_desc" id="ground_tent"></div>
+                    </div>
+                    <div class="ground_detail">
+                        <div class="ground_detail_name">Nocleg</div>
+                        <div class="ground_detail_desc" id="ground_accommodation"></div>
+                    </div>
+                    <div class="ground_detail">
+                        <div class="ground_detail_name">Spinning</div>
+                        <div class="ground_detail_desc" id="ground_spinning"></div>
+                    </div>
                 </div>
-                <div class="ground_detail">
-                    <div class="ground_detail_name">Gatunki ryb</div>
-                    <div class="ground_detail_desc" id="ground_spieces"></div>
-                </div>
-                <div class="ground_detail">
-                    <div class="ground_detail_name">Powierzchnia (ha)</div>
-                    <div class="ground_detail_desc" id="ground_area"></div>
-                </div>
-                <div class="ground_detail">
-                    <div class="ground_detail_name">Łowienie nocą</div>
-                    <div class="ground_detail_desc" id="ground_night_fishing"></div>
-                </div>
-                <div class="ground_detail">
-                    <div class="ground_detail_name">Rozbicie namiotu</div>
-                    <div class="ground_detail_desc" id="ground_tent"></div>
-                </div>
-                <div class="ground_detail">
-                    <div class="ground_detail_name">Nocleg</div>
-                    <div class="ground_detail_desc" id="ground_accommodation"></div>
-                </div>
-                <div class="ground_detail">
-                    <div class="ground_detail_name">Spinning</div>
-                    <div class="ground_detail_desc" id="ground_spinning"></div>
+                <div id="grounds_map">
+                    <div id="map"></div>
+                    <div id="map_buttons">
+                        <button class="map_button" onclick="findClosestFishingGround()">Najbliże łowisko</button>
+                        <div id="map_buttons_divider"></div>
+                        <button class="map_button" onclick="panToCurrentLocation()">Moja lokalizacja</button>
+                    </div>
                 </div>
             </div>
-            <div id="grounds_map">
-                <div id="map"></div>
-                <div id="map_buttons">
-                    <button class="map_button" onclick="findClosestFishingGround()">Najbliże łowisko</button>
-                    <div id="map_buttons_divider"></div>
-                    <button class="map_button" onclick="panToCurrentLocation()">Moja lokalizacja</button>
+            <div id="weather">
+                <button id="check_weather_button">Sprawdź pogodę</button>
+                <div id="weather_forecast">
+                    <div class="day_weather">
+                        <div class="weather_dayname">Pn</div>
+                        <div class="weather_icon"><i class="fas fa-cloud-sun"></i></div>
+                        <div class="weather_details">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td><span><i class="fa-solid fa-sun"></i></td>
+                                        <td>Wsch.</td>
+                                        <td>6:23</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa-regular fa-sun"></i></td>
+                                        <td>Zach.</td>
+                                        <td>19:28</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa-solid fa-temperature-full"></i></td>
+                                        <td>Max T.</td>
+                                        <td>21 &degC</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa-solid fa-temperature-empty"></i></td>
+                                        <td>Min T.</td>
+                                        <td>7 &degC</td>
+                                    </tr>
+                                    <tr>
+                                        <td><i class="fa-solid fa-umbrella"></i></td>
+                                        <td>Opady</td>
+                                        <td>20mm</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- <div class="weather_sunrise"><span><i class="fa-solid fa-sun"></i>
+                                    Wsch.</span><span>6:23</span> </div>
+                            <div class="weather_sunset"><span><i class="fa-regular fa-sun"></i>
+                                    Zach.</span><span>19:28</span> </div>
+                            <div class="weather_max_temp"><span><i class="fa-solid fa-temperature-full"></i> Max
+                                    T.</span><span>21 &degC</span> </div>
+                            <div class="weather_min_temp"><span><i class="fa-solid fa-temperature-empty"></i> Min
+                                    T.</span><span>7 &degC</span> </div>
+                            <div class="weather_precipitation"><span><i
+                                        class="fa-solid fa-umbrella"></i>Opady</span><span>20mm</span> </div> -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
