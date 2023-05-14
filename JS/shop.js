@@ -280,3 +280,93 @@ function showReels(type) {
 
     document.getElementById('items_display').innerHTML = html;
 }
+
+
+function showStrings() {
+    var strings = items.main_strings;
+
+
+    console.log(strings);
+    var html = '';
+    for (let i = 0; i < strings.length; i++) {
+        html +=
+            `
+        <div class="item">
+            <div class="item_image">
+                <img src="img/test_item.png" alt="123">
+            </div>
+            <div class="item_name">${strings[i].name}</div>
+            <div class="item_description">
+                Średnica: ${strings[i].diameter[0]}<br>
+                Długość.: ${strings[i].length[0]}<br>
+            </div>
+            <dvi class="item_price_details">
+                <div class="item_price">${strings[i].price[0]} zł</div>
+                <div class="item_details">Szczegóły</div>
+            </dvi>
+        </div>
+        `
+    }
+
+    document.getElementById('items_display').innerHTML = html;
+}
+
+
+function showArtificialBaits() {
+    var baits = items.artificial_baits;
+
+    console.log(baits);
+    var html = '';
+    for (let i = 0; i < baits.length; i++) {
+        html +=
+            `
+        <div class="item">
+            <div class="item_image">
+                <img src="img/test_item.png" alt="123">
+            </div>
+            <div class="item_name">${baits[i].name}</div>
+            <div class="item_description">
+                Kolor: ${baits[i].color[0]}<br>
+                Długość: ${baits[i].length[0]}<br>
+                Ciężar: ${baits[i].weight[0]}<br>
+            </div>
+            <dvi class="item_price_details">
+                <div class="item_price">${baits[i].price[0]} zł</div>
+                <div class="item_details">Szczegóły</div>
+            </dvi>
+        </div>
+        `
+    }
+
+    document.getElementById('items_display').innerHTML = html;
+}
+
+function showNaturalBaits() {
+    var baits = items.natural_baits;
+    // name: "Kulki haczykowe Jaxon Method Ground 16mm",
+    //         price: 9,
+    //         manufacturer: "Jaxon",
+    //         flavor: ["Truskawka", "Wanilia", "Amur"]
+    console.log(baits);
+    var html = '';
+    for (let i = 0; i < baits.length; i++) {
+        html +=
+            `
+        <div class="item">
+            <div class="item_image">
+                <img src="img/test_item.png" alt="123">
+            </div>
+            <div class="item_name">${baits[i].name}</div>
+            <div class="item_description">
+                Kolor: ${baits[i].flavor[0]}<br>
+            </div>
+            <dvi class="item_price_details">
+                <div class="item_price">${baits[i].price} zł</div>
+                <div class="item_details">Szczegóły</div>
+            </dvi>
+        </div>
+        `
+    }
+
+    document.getElementById('items_display').innerHTML = html;
+}
