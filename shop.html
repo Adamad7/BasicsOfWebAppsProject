@@ -7,6 +7,9 @@
     <title>Pstrągarnia</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/shop.css">
+    <script src="JS/shop.js"></script>
+
 </head>
 
 <body>
@@ -45,8 +48,8 @@
                         Wędziska
                     </div>
                     <ul>
-                        <li><a href="">Spinningowe</a></li>
-                        <li><a href="">Karpiowe</a></li>
+                        <li><a href="javascript:showRods(1);">Spinningowe</a></li>
+                        <li><a href="javascript:showRods(2);">Karpiowe</a></li>
                     </ul>
                 </div>
                 <div class="category">
@@ -54,8 +57,8 @@
                         Kołowrotki
                     </div>
                     <ul>
-                        <li><a href="">Z przednim hamulcem</a></li>
-                        <li><a href="">Z tylnym hamulcem</a></li>
+                        <li><a href="javascript:showReels(1);">Z przednim hamulcem</a></li>
+                        <li><a href="javascript:showReels(2);">Z tylnym hamulcem</a></li>
                     </ul>
                 </div>
                 <div class="category">
@@ -64,7 +67,6 @@
                     </div>
                     <ul>
                         <li><a href="">Główne</a></li>
-                        <li><a href="">Przyponowe</a></li>
                     </ul>
                 </div>
                 <div class="category">
@@ -83,7 +85,80 @@
             </div>
 
             <div id="items">
-
+                <h2 class="selected_category">Wybierz kategorię</h2>
+                <div id="items_display">
+                    <div class="item">
+                        <div class="item_image">
+                            <img src="img/test_item.png" alt="123">
+                        </div>
+                        <div class="item_name">Wędka Dragon Express Spinn 35</div>
+                        <div class="item_description">
+                            Model: XYZ <br>
+                            Długość: 200 cm <br>
+                            Rodzaj: spinning <br>
+                        </div>
+                        <dvi class="item_price_details">
+                            <div class="item_price">200 zł</div>
+                            <div class="item_details">Szczegóły</div>
+                        </dvi>
+                    </div>
+                    <!-- <div class="item">
+                        <div class="item_image">
+                            <img src="img/test_item.png" alt="123">
+                        </div>
+                        <div class="item_description">
+                            Model: XYZ <br>
+                            Długość: 200 cm <br>
+                            Rodzaj: spinning <br>
+                        </div>
+                        <dvi class="item_price_details">
+                            <div class="item_price">200 zł</div>
+                            <div class="item_details">Szczegóły</div>
+                        </dvi>
+                    </div>
+                    <div class="item">
+                        <div class="item_image">
+                            <img src="img/test_item.png" alt="123">
+                        </div>
+                        <div class="item_description">
+                            Model: XYZ <br>
+                            Długość: 200 cm <br>
+                            Rodzaj: spinning <br>
+                        </div>
+                        <dvi class="item_price_details">
+                            <div class="item_price">200 zł</div>
+                            <div class="item_details">Szczegóły</div>
+                        </dvi>
+                    </div>
+                    <div class="item">
+                        <div class="item_image">
+                            <img src="img/test_item.png" alt="123">
+                        </div>
+                        <div class="item_description">
+                            Model: XYZ <br>
+                            Długość: 200 cm <br>
+                            Rodzaj: spinning <br>
+                        </div>
+                        <dvi class="item_price_details">
+                            <div class="item_price">200 zł</div>
+                            <div class="item_details">Szczegóły</div>
+                        </dvi>
+                    </div>
+                    <div class="item">
+                        <div class="item_image">
+                            <img src="img/test_item.png" alt="123">
+                        </div>
+                        <div class="item_description">
+                            Model: XYZ <br>
+                            Długość: 200 cm <br>
+                            Rodzaj: spinning <br>
+                        </div>
+                        <dvi class="item_price_details">
+                            <div class="item_price">200 zł</div>
+                            <div class="item_details">Szczegóły</div>
+                        </dvi>
+                    </div> -->
+                </div>
             </div>
         </div>
     </main>

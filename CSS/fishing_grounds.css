@@ -1,7 +1,6 @@
 #grounds_and_weather_container {
     display: flex;
     flex-direction: column;
-    /* background-color: red; */
 }
 
 #check_weather_button {
@@ -76,25 +75,16 @@
 .weather_details>table tr td:first-child {
     text-align: center;
     font-size: 10px;
-    /* background-color: blue; */
 }
 
 .weather_details>table tr td:nth-child(2) {
     font-size: 11px;
-    /* text-align: center; */
-    /* background-color: blue; */
 }
 
 .weather_details>table tr td:last-child {
     text-align: right;
     font-size: 12px;
-    /* background-color: green; */
 }
-
-
-
-
-
 
 #grounds {
     display: flex;
@@ -139,7 +129,6 @@
 #map_buttons_divider {
     background-color: #6A99B6;
     width: 3px;
-    /* height: 40px; */
 }
 
 #map {
