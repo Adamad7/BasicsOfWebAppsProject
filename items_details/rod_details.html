@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pstrągarnia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/item_details.css">
+    <script src="../JS/item_details.js"></script>
+
+</head>
+
+<body>
+
+    <nav>
+
+
+
+        <a href="index.html">Strona główna</a>
+        <a href="../shop.html">Sklep</a>
+        <a href="#news">Blog</a>
+        <div class="dropdown">
+            <button class="dropbtn">Niezbędnik
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#">Atlas</a>
+                <a href="fishing_grounds.html">Łowiska</a>
+                <a href="calendar.html">Kalendarz</a>
+            </div>
+        </div>
+        <a href="newsletter.html">Newsletter</a>
+        <a href="#news">Źródła</a>
+        <a href="">
+            <div id="cart_value"><i class="fas fa-shopping-cart"></i> (200zł)</div>
+        </a>
+    </nav>
+
+    <main>
+        <div id="details">
+            <div id="img_and_options">
+                <img src="../img/test_item.png">
+                <div id="name_and_options">
+                    <h2 class="product_details">Testowy produkt</h2>
+                    <div id="item_price">200zł</div>
+                    <div id="product_options">
+                        <div class="product_option">
+                            <div class="option_name">Długość:</div>
+                            <div id="options_length" class="options">
+                                <button class="option length selected" onclick="selectOption('length', 0)">170</button>
+                                <button class="option length" onclick="selectOption('length', 1)">190</button>
+                                <button class="option length" onclick="selectOption('length', 2)">210</button>
+                                <button class="option length" onclick="selectOption('length', 3)">250</button>
+                                <button class="option length" onclick="selectOption('length', 4)">300</button>
+
+                            </div>
+
+                            <div class="option_name">Cw:</div>
+                            <div id="options_cw" class="options">
+                                <button class="option cw selected" onclick="selectOption('cw', 0)">10</button>
+                                <button class="option cw" onclick="selectOption('cw', 1)">20</button>
+                                <button class="option cw" onclick="selectOption('cw', 2)">30</button>
+                                <button class="option cw" onclick="selectOption('cw', 3)">40</button>
+
+                            </div>
+                        </div>
+                        <div class="product_option">
+                            <div class="option_name"></div>
+                            <div class="options"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="product_details">
+                <div>Szczegóły:</div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Producent</td>
+                            <td>Jaxon</td>
+                        </tr>
+                        <tr>
+                            <td>Długość</td>
+                            <td>210</td>
+                        </tr>
+                        <tr>
+                            <td>C. W.</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>Sekcje</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>Dł. transportowa</td>
+                            <td>120</td>
+                        </tr>
+                        <tr>
+                            <td>Waga</td>
+                            <td>260</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="back_and_cart">
+                <button id="go_back" onclick=""><i class="fa-solid fa-arrow-left-long"></i> Wróć</button>
+                <button id="add_to_cart" onclick=""><i class="fa-solid fa-cart-arrow-down"></i> Do koszyka</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy Adam Mazur
+    </footer>
+</body>
+
+</html>
