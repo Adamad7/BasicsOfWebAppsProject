@@ -264,7 +264,7 @@ function showCategory(categoryId) {
         default:
             return null;
     }
-    console.log(itemsDescriptions);
+    // console.log(itemsDescriptions);
     var html = '';
 
     for (let i = 0; i < displayedItems.length; i++) {
@@ -348,27 +348,26 @@ function showItemDetails(itemCategory, itemIndex) {
     var item;
     var mainOptions = '';
     var additionalOptions = '';
-    var details;
-
+    // console.log(itemCategory);
     switch (itemCategory) {
 
         case 1:
             item = items.spinning_rods[itemIndex];
-            // details = getRodDetails(item);
-            mainOptions = getOptions('length', item.length, "Długość", true);
-            additionalOptions = getOptions('cw', item.castingWeight, "C.W.", false);
+            mainOptions = getOptions('length', item.length, "Długość", true, itemCategory);
+            additionalOptions = getOptions('cw', item.castingWeight, "C.W.", false, itemCategory);
             break;
         case 2:
             item = items.carp_rods[itemIndex];
-            // details = getRodDetails(item);
-            mainOptions = getOptions('length', item.length, "Długość", true);
-            additionalOptions = getOptions('cw', item.castingWeight, "C.W.", false);
+            mainOptions = getOptions('length', item.length, "Długość", true, itemCategory);
+            additionalOptions = getOptions('cw', item.castingWeight, "C.W.", false, itemCategory);
             break;
         case 3:
             item = items.front_reels[itemIndex];
+            mainOptions = getOptions('size', item.size, "Rozmiar", true, itemCategory);
             break;
         case 4:
             item = items.back_reels[itemIndex];
+            mainOptions = getOptions('size', item.size, "Rozmiar", true, itemCategory);
             break;
         case 5:
             item = items.main_strings[itemIndex];
@@ -406,7 +405,6 @@ function showItemDetails(itemCategory, itemIndex) {
 
         </div>
         <div id="product_details">
-            // ${details}
         </div>
 
         <div id="back_and_cart">
@@ -418,40 +416,27 @@ function showItemDetails(itemCategory, itemIndex) {
 
 
     document.getElementsByTagName('main')[0].innerHTML = html;
-    updateRodDetails();
+    if (itemCategory <= 2) {
+        updateRodDetails();
+    }
+    else if (itemCategory > 2 && itemCategory <= 4) {
+        updateReelDetails();
+    }
 }
 
-function getOptions(className, options, optionName, isMainOption) {
+function getOptions(className, options, optionName, isMainOption, categoryId) {
     var html = `
     <div class="option_name">${optionName}:</div>
     <div id="options_$${className}" class="options">`;
-    html += `<button class="option ${className} selected" onclick="selectOption('${className}', 0, ${isMainOption})">${options[0]}</button>`;
+    html += `<button class="option ${className} selected" onclick="selectOption('${className}', 0, ${isMainOption}, ${categoryId})">${options[0]}</button>`;
     for (let i = 1; i < options.length; i++) {
-        html += `<button class="option ${className}" onclick="selectOption('${className}', ${i}, ${isMainOption})">${options[i]}</button>`;
+        html += `<button class="option ${className}" onclick="selectOption('${className}', ${i}, ${isMainOption}, ${categoryId})">${options[i]}</button>`;
     }
     html += '</div>';
     return html;
 }
 
-// function getRodDetails(item) {
-//     var html = `
-//     <div>Szczegóły:</div>
-//             <table>
-//                 <tbody>
-//                     <tr><td>Producent</td><td>${item.manufacturer}</td></tr>
-//                     <tr><td>Długość</td><td>${item.length[currentMainOptionIndex]}</td></tr>
-//                     <tr><td>C. W.</td><td>${item.castingWeight[currentAdditionalOptionIndex]}</td></tr>
-//                     <tr><td>Sekcje</td><td>${item.sections[currentMainOptionIndex]}</td></tr>
-//                     <tr><td>Dł. transportowa</td><td>${item.transportlength[currentMainOptionIndex]}</td></tr>
-//                     <tr><td>Waga</td><td>${item.weight[currentMainOptionIndex]}</td></tr>
-//                 </tbody>
-//             </table>
-//     `
-//     return html;
-// }
 function updateRodDetails() {
-    // console.log("main: " + currentMainOptionIndex);
-    // console.log("add: " + currentAdditionalOptionIndex);
     var html = `
     <div>Szczegóły:</div>
             <table>
@@ -468,11 +453,30 @@ function updateRodDetails() {
     document.getElementById('product_details').innerHTML = html;
 }
 
+
+function updateReelDetails() {
+    var html = `
+    <div>Szczegóły:</div>
+            <table>
+                <tbody>
+                    <tr><td>Producent</td><td>${currentItem.manufacturer}</td></tr>
+                    <tr><td>Rozmiar</td><td>${currentItem.size[currentMainOptionIndex]}</td></tr>
+                    <tr><td>Przełożenie</td><td>${currentItem.ratio}</td></tr>
+                    <tr><td>Pojemność szpuli</td><td>${currentItem.spoolCapacity[currentMainOptionIndex]}</td></tr>
+                    <tr><td>Siła hamulca</td><td>${currentItem.brakeForce[currentMainOptionIndex]}</td></tr>
+                    <tr><td>Długość</td><td>${currentItem.length[currentMainOptionIndex]}</td></tr>
+                    <tr><td>Łożyska</td><td>${currentItem.bearing}</td></tr>
+                </tbody>
+            </table>
+    `
+    document.getElementById('product_details').innerHTML = html;
+}
+
 function updatePrice() {
     document.getElementById('item_price').innerHTML = currentItem.price[currentMainOptionIndex] + "zł";
 }
 
-function selectOption(className, selectedIndex, isMainOption) {
+function selectOption(className, selectedIndex, isMainOption, categoryId) {
     var options = document.getElementsByClassName(className);
     if (isMainOption == true) {
         currentMainOptionIndex = selectedIndex;
@@ -484,14 +488,19 @@ function selectOption(className, selectedIndex, isMainOption) {
     var html = ``;
     for (let i = 0; i < options.length; i++) {
         if (i == selectedIndex) {
-            html += `<button class="option ${className} selected" onclick="selectOption('${className}', ${i}, ${isMainOption})">${options[i].innerHTML}</button>`
+            html += `<button class="option ${className} selected" onclick="selectOption('${className}', ${i}, ${isMainOption}, ${categoryId})">${options[i].innerHTML}</button>`
         }
         else {
-            html += `<button class="option ${className}" onclick="selectOption('${className}', ${i}, ${isMainOption})">${options[i].innerHTML}</button>`
+            html += `<button class="option ${className}" onclick="selectOption('${className}', ${i}, ${isMainOption}, ${categoryId})">${options[i].innerHTML}</button>`
         }
     }
 
-    updateRodDetails();
+    if (categoryId <= 2) {
+        updateRodDetails();
+    }
+    else if (categoryId > 2 && categoryId <= 4) {
+        updateReelDetails();
+    }
     updatePrice();
     document.getElementById(parentId).innerHTML = html;
 }
