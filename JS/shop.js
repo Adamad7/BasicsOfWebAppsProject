@@ -341,42 +341,47 @@ var currentMainOptionIndex = 0;
 var currentAdditionalOptionIndex = 0;
 var currentItem;
 
-function showItemDetails(itemCategory, itemIndex) {
+function showItemDetails(categoryId, itemIndex) {
     currentMainOptionIndex = 0;
     currentAdditionalOptionIndex = 0;
 
     var item;
     var mainOptions = '';
     var additionalOptions = '';
-    // console.log(itemCategory);
-    switch (itemCategory) {
+    // console.log(categoryId);
+    switch (categoryId) {
 
         case 1:
             item = items.spinning_rods[itemIndex];
-            mainOptions = getOptions('length', item.length, "Długość", true, itemCategory);
-            additionalOptions = getOptions('cw', item.castingWeight, "C.W.", false, itemCategory);
+            mainOptions = getOptions('length', item.length, "Długość", true, categoryId);
+            additionalOptions = getOptions('cw', item.castingWeight, "C.W.", false, categoryId);
             break;
         case 2:
             item = items.carp_rods[itemIndex];
-            mainOptions = getOptions('length', item.length, "Długość", true, itemCategory);
-            additionalOptions = getOptions('cw', item.castingWeight, "C.W.", false, itemCategory);
+            mainOptions = getOptions('length', item.length, "Długość", true, categoryId);
+            additionalOptions = getOptions('cw', item.castingWeight, "C.W.", false, categoryId);
             break;
         case 3:
             item = items.front_reels[itemIndex];
-            mainOptions = getOptions('size', item.size, "Rozmiar", true, itemCategory);
+            mainOptions = getOptions('size', item.size, "Rozmiar", true, categoryId);
             break;
         case 4:
             item = items.back_reels[itemIndex];
-            mainOptions = getOptions('size', item.size, "Rozmiar", true, itemCategory);
+            mainOptions = getOptions('size', item.size, "Rozmiar", true, categoryId);
             break;
         case 5:
             item = items.main_strings[itemIndex];
+            mainOptions = getOptions('length', item.length, "Długość", true, categoryId);
+            additionalOptions = getOptions('diameter', item.diameter, "Średnica", false, categoryId);
             break;
         case 6:
             item = items.artificial_baits[itemIndex];
+            mainOptions = getOptions('length', item.length, "Długość", true, categoryId);
+            additionalOptions = getOptions('color', item.color, "Kolor", false, categoryId);
             break;
         case 7:
             item = items.natural_baits[itemIndex];
+            additionalOptions = getOptions('flavor', item.flavor, "Smak", false, categoryId);
             break;
 
         default:
@@ -408,7 +413,7 @@ function showItemDetails(itemCategory, itemIndex) {
         </div>
 
         <div id="back_and_cart">
-            <button id="go_back" onclick="goBack(${itemCategory})"><i class="fa-solid fa-arrow-left-long"></i> Wróć</button>
+            <button id="go_back" onclick="goBack(${categoryId})"><i class="fa-solid fa-arrow-left-long"></i> Wróć</button>
             <button id="add_to_cart"><i class="fa-solid fa-cart-arrow-down"></i> Do koszyka</button>
         </div>
     </div>
@@ -416,11 +421,24 @@ function showItemDetails(itemCategory, itemIndex) {
 
 
     document.getElementsByTagName('main')[0].innerHTML = html;
-    if (itemCategory <= 2) {
+    updateDetails(categoryId);
+}
+
+function updateDetails(categoryId) {
+    if (categoryId <= 2) {
         updateRodDetails();
     }
-    else if (itemCategory > 2 && itemCategory <= 4) {
+    else if (categoryId > 2 && categoryId <= 4) {
         updateReelDetails();
+    }
+    else if (categoryId > 4 && categoryId <= 5) {
+        updateStringDetails();
+    }
+    else if (categoryId > 5 && categoryId <= 6) {
+        updateArtificialBaitDetails();
+    }
+    else if (categoryId > 6 && categoryId <= 7) {
+        updateNaturalBaitDetails();
     }
 }
 
@@ -472,6 +490,51 @@ function updateReelDetails() {
     document.getElementById('product_details').innerHTML = html;
 }
 
+
+function updateStringDetails() {
+    var html = `
+    <div>Szczegóły:</div>
+            <table>
+                <tbody>
+                    <tr><td>Producent</td><td>${currentItem.manufacturer}</td></tr>
+                    <tr><td>Długość</td><td>${currentItem.length[currentMainOptionIndex]}</td></tr>
+                    <tr><td>Średnica</td><td>${currentItem.diameter[currentAdditionalOptionIndex]}</td></tr>
+                </tbody>
+            </table>
+    `
+    document.getElementById('product_details').innerHTML = html;
+}
+
+
+function updateArtificialBaitDetails() {
+    var html = `
+    <div>Szczegóły:</div>
+            <table>
+                <tbody>
+                    <tr><td>Producent</td><td>${currentItem.manufacturer}</td></tr>
+                    <tr><td>Długość</td><td>${currentItem.length[currentMainOptionIndex]}</td></tr>
+                    <tr><td>Kolor</td><td>${currentItem.color[currentAdditionalOptionIndex]}</td></tr>
+                    <tr><td>Ciężar</td><td>${currentItem.weight[currentMainOptionIndex]}</td></tr>
+                </tbody>
+            </table>
+    `
+    document.getElementById('product_details').innerHTML = html;
+}
+
+
+function updateNaturalBaitDetails() {
+    var html = `
+    <div>Szczegóły:</div>
+            <table>
+                <tbody>
+                    <tr><td>Producent</td><td>${currentItem.manufacturer}</td></tr>
+                    <tr><td>Smak</td><td>${currentItem.flavor[currentAdditionalOptionIndex]}</td></tr>
+                </tbody>
+            </table>
+    `
+    document.getElementById('product_details').innerHTML = html;
+}
+
 function updatePrice() {
     document.getElementById('item_price').innerHTML = currentItem.price[currentMainOptionIndex] + "zł";
 }
@@ -495,12 +558,7 @@ function selectOption(className, selectedIndex, isMainOption, categoryId) {
         }
     }
 
-    if (categoryId <= 2) {
-        updateRodDetails();
-    }
-    else if (categoryId > 2 && categoryId <= 4) {
-        updateReelDetails();
-    }
+    updateDetails(categoryId);
     updatePrice();
     document.getElementById(parentId).innerHTML = html;
 }
@@ -554,4 +612,9 @@ function goBack(categoryId) {
         </div>
     `;
     showCategory(categoryId);
+}
+
+
+function saveToCart() {
+
 }
