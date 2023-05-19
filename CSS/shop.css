@@ -227,6 +227,16 @@
     color: white;
 }
 
+#details #quantity {
+    margin: 5px;
+    height: 20px;
+    border: 2px solid #001E42;
+    border-radius: 5px;
+}
+
+#details #quantity_error {
+    color: red;
+}
 
 
 #details #product_details {

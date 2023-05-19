@@ -218,6 +218,23 @@ const items = {
     ],
 }
 
+
+// $(document).ready(function () {
+//     updateCartValue();
+// });
+
+// function updateCartValue() {
+//     var cart = JSON.parse(localStorage.getItem('cart'));
+//     if (cart == null) {
+//         cart = {
+//             totalValue: 0,
+//             items: []
+//         };
+//     }
+//     localStorage.setItem('cart', JSON.stringify(cart));
+//     document.getElementById('cart_value').innerHTML = `<i class="fas fa-shopping-cart"></i> (${cart.totalValue}zł)`;
+// }
+
 function showCategory(categoryId) {
     var displayedItems;
     var itemsDescriptions;
@@ -285,16 +302,16 @@ function showCategory(categoryId) {
         </div>
         `
     }
-    document.getElementsByClassName('selected_category').innerHTML = categoryNames[categoryId - 1];
+    document.getElementsByClassName('selected_category')[0].innerHTML = categoryNames[categoryId - 1];
     document.getElementById('items_display').innerHTML = html;
 }
 
 function getRodsDescription(rods) {
     var descriptions = [];
     for (let i = 0; i < rods.length; i++) {
-        descriptions.push(`Długość: ${rods[i].length[0]}<br>
-        C.W.: ${rods[i].castingWeight[0]}<br>
-        Waga: ${rods[i].weight[0]}<br>`);
+        descriptions.push(`Długość [mm]: ${rods[i].length[0]}<br>
+        C.W. [g]: ${rods[i].castingWeight[0]}<br>
+        Waga [g]: ${rods[i].weight[0]}<br>`);
     }
     return descriptions;
 }
@@ -302,10 +319,10 @@ function getRodsDescription(rods) {
 function getReelsDescription(reels) {
     var descriptions = [];
     for (let i = 0; i < reels.length; i++) {
-        descriptions.push(`Rozmiar: ${reels[i].size[0]}<br>
+        descriptions.push(`Wielkość: ${reels[i].size[0]}<br>
         Przełożenie.: ${reels[i].ratio}<br>
         Poj. szpuli: ${reels[i].spoolCapacity[0]}<br>
-        Siła hamulca: ${reels[i].brakeForce[0]}<br>`);
+        Siła hamulca [kg]: ${reels[i].brakeForce[0]}<br>`);
     }
     return descriptions;
 }
@@ -313,8 +330,8 @@ function getReelsDescription(reels) {
 function getStringsDescription(strings) {
     var descriptions = [];
     for (let i = 0; i < strings.length; i++) {
-        descriptions.push(`Średnica: ${strings[i].diameter[0]}<br>
-        Długość.: ${strings[i].length[0]}<br>`);
+        descriptions.push(`Średnica [mm]: ${strings[i].diameter[0]}<br>
+        Długość [m]: ${strings[i].length[0]}<br>`);
     }
     return descriptions;
 }
@@ -323,8 +340,8 @@ function getArtificialBaitsDescription(baits) {
     var descriptions = [];
     for (let i = 0; i < baits.length; i++) {
         descriptions.push(`Kolor: ${baits[i].color[0]}<br>
-        Długość: ${baits[i].length[0]}<br>
-        Ciężar: ${baits[i].weight[0]}<br>`);
+        Długość [mm]: ${baits[i].length[0]}<br>
+        Ciężar [g]: ${baits[i].weight[0]}<br>`);
     }
     return descriptions;
 }
@@ -392,6 +409,7 @@ function showItemDetails(categoryId, itemIndex) {
     <div id="details">
         <div id="img_and_options">
             <img src="${item.img}">
+            
             <div id="name_and_options">
                 <h2 class="product_details">${item.name}</h2>
                 <div id="item_price">${item.price[currentMainOptionIndex]}zł</div>
@@ -399,11 +417,17 @@ function showItemDetails(categoryId, itemIndex) {
                     <div class="product_option">
                         ${mainOptions}
 
+                        </div>
+                    <div class="product_option">
+                        
                         ${additionalOptions}
                     </div>
                     <div class="product_option">
-                        <div class="option_name"></div>
-                        <div class="options"></div>
+                        <div class="option_name">Ilość:</div>
+                        <div id="options_quantity" class="options">
+                            <input id="quantity" type="number" max="10" min="1" value="1">
+                            <div id="quantity_error"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -414,7 +438,7 @@ function showItemDetails(categoryId, itemIndex) {
 
         <div id="back_and_cart">
             <button id="go_back" onclick="goBack(${categoryId})"><i class="fa-solid fa-arrow-left-long"></i> Wróć</button>
-            <button id="add_to_cart"><i class="fa-solid fa-cart-arrow-down"></i> Do koszyka</button>
+            <button id="add_to_cart" onclick="addToCart()"><i class="fa-solid fa-cart-arrow-down"></i> Do koszyka</button>
         </div>
     </div>
     `;
@@ -445,7 +469,7 @@ function updateDetails(categoryId) {
 function getOptions(className, options, optionName, isMainOption, categoryId) {
     var html = `
     <div class="option_name">${optionName}:</div>
-    <div id="options_$${className}" class="options">`;
+    <div id="options_${className}" class="options">`;
     html += `<button class="option ${className} selected" onclick="selectOption('${className}', 0, ${isMainOption}, ${categoryId})">${options[0]}</button>`;
     for (let i = 1; i < options.length; i++) {
         html += `<button class="option ${className}" onclick="selectOption('${className}', ${i}, ${isMainOption}, ${categoryId})">${options[i]}</button>`;
@@ -460,11 +484,11 @@ function updateRodDetails() {
             <table>
                 <tbody>
                     <tr><td>Producent</td><td>${currentItem.manufacturer}</td></tr>
-                    <tr><td>Długość</td><td>${currentItem.length[currentMainOptionIndex]}</td></tr>
-                    <tr><td>C. W.</td><td>${currentItem.castingWeight[currentAdditionalOptionIndex]}</td></tr>
+                    <tr><td>Długość [mm]</td><td>${currentItem.length[currentMainOptionIndex]}</td></tr>
+                    <tr><td>C. W. [g]</td><td>${currentItem.castingWeight[currentAdditionalOptionIndex]}</td></tr>
                     <tr><td>Sekcje</td><td>${currentItem.sections[currentMainOptionIndex]}</td></tr>
-                    <tr><td>Dł. transportowa</td><td>${currentItem.transportlength[currentMainOptionIndex]}</td></tr>
-                    <tr><td>Waga</td><td>${currentItem.weight[currentMainOptionIndex]}</td></tr>
+                    <tr><td>Dł. transportowa [mm]</td><td>${currentItem.transportlength[currentMainOptionIndex]}</td></tr>
+                    <tr><td>Waga [g]</td><td>${currentItem.weight[currentMainOptionIndex]}</td></tr>
                 </tbody>
             </table>
     `
@@ -478,11 +502,11 @@ function updateReelDetails() {
             <table>
                 <tbody>
                     <tr><td>Producent</td><td>${currentItem.manufacturer}</td></tr>
-                    <tr><td>Rozmiar</td><td>${currentItem.size[currentMainOptionIndex]}</td></tr>
+                    <tr><td>Wielkość</td><td>${currentItem.size[currentMainOptionIndex]}</td></tr>
                     <tr><td>Przełożenie</td><td>${currentItem.ratio}</td></tr>
                     <tr><td>Pojemność szpuli</td><td>${currentItem.spoolCapacity[currentMainOptionIndex]}</td></tr>
-                    <tr><td>Siła hamulca</td><td>${currentItem.brakeForce[currentMainOptionIndex]}</td></tr>
-                    <tr><td>Długość</td><td>${currentItem.length[currentMainOptionIndex]}</td></tr>
+                    <tr><td>Siła hamulca [kg]</td><td>${currentItem.brakeForce[currentMainOptionIndex]}</td></tr>
+                    <tr><td>Długość [mm]</td><td>${currentItem.length[currentMainOptionIndex]}</td></tr>
                     <tr><td>Łożyska</td><td>${currentItem.bearing}</td></tr>
                 </tbody>
             </table>
@@ -497,8 +521,8 @@ function updateStringDetails() {
             <table>
                 <tbody>
                     <tr><td>Producent</td><td>${currentItem.manufacturer}</td></tr>
-                    <tr><td>Długość</td><td>${currentItem.length[currentMainOptionIndex]}</td></tr>
-                    <tr><td>Średnica</td><td>${currentItem.diameter[currentAdditionalOptionIndex]}</td></tr>
+                    <tr><td>Długość [m]</td><td>${currentItem.length[currentMainOptionIndex]}</td></tr>
+                    <tr><td>Średnica [mm]</td><td>${currentItem.diameter[currentAdditionalOptionIndex]}</td></tr>
                 </tbody>
             </table>
     `
@@ -512,9 +536,9 @@ function updateArtificialBaitDetails() {
             <table>
                 <tbody>
                     <tr><td>Producent</td><td>${currentItem.manufacturer}</td></tr>
-                    <tr><td>Długość</td><td>${currentItem.length[currentMainOptionIndex]}</td></tr>
+                    <tr><td>Długość [mm]</td><td>${currentItem.length[currentMainOptionIndex]}</td></tr>
                     <tr><td>Kolor</td><td>${currentItem.color[currentAdditionalOptionIndex]}</td></tr>
-                    <tr><td>Ciężar</td><td>${currentItem.weight[currentMainOptionIndex]}</td></tr>
+                    <tr><td>Ciężar [g]</td><td>${currentItem.weight[currentMainOptionIndex]}</td></tr>
                 </tbody>
             </table>
     `
@@ -615,6 +639,32 @@ function goBack(categoryId) {
 }
 
 
-function saveToCart() {
+function addToCart() {
+    // console.log(document.getElementById("quantity").value);
+    var itemQuantity = document.getElementById("quantity").value
+    if (itemQuantity < 1 || itemQuantity > 10) {
+        document.getElementById('quantity_error').innerHTML = "Błąd, możesz kupić od 1 do 10 sztuk produktu";
+    }
+    var cart = JSON.parse(localStorage.getItem('cart'));
+    if (cart == null) {
+        cart = {
+            totalValue: 0,
+            itemsInCart: []
+        };
+    }
 
+    cart.itemsInCart.push(
+        {
+            item: currentItem,
+            quantity: itemQuantity,
+            price: currentItem.price[currentMainOptionIndex],
+            totalPrice: itemQuantity * currentItem.price[currentMainOptionIndex],
+            mainOption: currentMainOptionIndex,
+            additionalOption: currentAdditionalOptionIndex,
+        }
+    )
+
+    cart.totalValue += itemQuantity * currentItem.price[currentMainOptionIndex];
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert("Dodano produkt do koszyka");
 }

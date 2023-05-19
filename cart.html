@@ -9,11 +9,7 @@
     <script src="JS/cart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/calendar.css">
-
-    <script src="JS/calendar.js"></script>
-
-
+    <link rel="stylesheet" href="CSS/cart.css">
 </head>
 
 <body>
@@ -42,26 +38,39 @@
     </nav>
 
     <main>
-        <div id="events_calendar">
-            <div id="left_panel">
-                <h2 class="calendar_title">Wydarzenia</h2>
-                <div id="events">
+        <h2 class="cart_title">Koszyk</h2>
 
-                </div>
-            </div>
-
-            <div id="calendar">
-                <div id="calendar_nav">
-                    <button class="calendar_nav_button" onclick="previousMonth()"><i
-                            class="fa fa-angle-left"></i></button>
-                    <div id="calendar_nav_title"></div>
-                    <button class="calendar_nav_button" onclick="nextMonth()"><i class="fa fa-angle-right"></i></button>
-                </div>
-
-                <div id="calendar_days"></div>
-
-            </div>
+        Zawartośc twojego koszyka:
+        <div id="cart_content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nazwa</th>
+                        <th>Liczba sztuk</th>
+                        <th>Cena</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Wędka super duper mega xl</td>
+                        <td>2</td>
+                        <td>200zł</td>
+                        <td><button class="edit_cart">Edytuj</button></td>
+                    </tr>
+                    <tr>
+                        <td>Zanęta że ja pierdole</td>
+                        <td>5</td>
+                        <td>10zł</td>
+                        <td><button class="edit_cart">Edytuj</button></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+
+
+
+
     </main>
 
     <footer>
