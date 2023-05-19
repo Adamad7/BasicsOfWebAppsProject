@@ -1,16 +1,21 @@
+h2.cart_title {
+    width: 40%;
+}
+
 #cart_content {
     /* background-color: blue; */
     border: 2px solid #001E42;
     border-radius: 20px;
     overflow: hidden;
+    margin-top: 40px;
 }
 
-table {
+#cart_content table {
     border-collapse: collapse;
     width: 100%;
 }
 
-th {
+#cart_content th {
     min-width: 50px;
     background-color: #001E42;
     color: white;
@@ -20,32 +25,80 @@ th {
     /* border-top: none; */
 }
 
-td {
+#cart_content td {
     border-left: 2px solid #001E42;
     border-right: 2px solid #001E42;
     text-align: center;
     padding: 5px
 }
 
-td:first-child,
-th:first-child {
+#cart_content td:first-child,
+#cart_content th:first-child {
     border-left: none;
 }
 
-td:last-child,
-th:last-child {
+#cart_content td:last-child,
+#cart_content th:last-child {
     border-right: none;
 }
 
-tr {
+#cart_content tr {
     border-top: 2px solid #001E42;
     border-bottom: 2px solid #001E42;
 }
 
-thead tr:first-child {
+#cart_content thead tr:first-child {
     border-top: none;
 }
 
-tbody tr:last-child {
+#cart_content tbody tr:last-child {
     border-bottom: none;
 }
+
+#delivery_info {
+    width: 50%;
+    border: 2px solid #001E42;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#delivery_info table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#delivery_info th {
+    background-color: #001E42;
+    color: white;
+    padding: 5px;
+}
+
+#delivery_info tr {
+    border-bottom: 2px solid #001E42;
+}
+
+#delivery_info tr:last-child {
+    border-bottom: none;
+}
+
+#delivery_info td {
+    padding: none;
+}
+
+#delivery_info td:first-child {
+    border-right: 2px solid #001E42;
+    padding: 3px;
+    text-align: right;
+}
+
+#delivery_info input,
+#delivery_info select {
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 30px;
+}
+
+/* #delivery_info select {
+    width: 100%;
+} */

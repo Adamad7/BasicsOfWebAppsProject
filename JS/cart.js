@@ -21,7 +21,7 @@ function updateCartValue() {
 
 
 function showCartContent() {
-    var html = '<table><thead><tr><th>Nazwa</th><th>Liczba sztuk</th><th>Cena</th><th></th></tr></thead><tbody>';
+    var html = '<table><thead><tr><th>Nazwa produktu</th><th>Liczba sztuk</th><th>Cena</th><th></th></tr></thead><tbody>';
     for (let i = 0; i < cart.itemsInCart.length; i++) {
         html += `
         <tr>
@@ -39,7 +39,7 @@ function showCartContent() {
 
 
 function editItem(itemId) {
-    var html = '<table><thead><tr><th>Nazwa</th><th>Liczba sztuk</th><th>Cena</th><th></th></tr></thead><tbody>';
+    var html = '<table><thead><tr><th>Nazwa produktu</th><th>Liczba sztuk</th><th>Cena</th><th></th></tr></thead><tbody>';
     for (let i = 0; i < cart.itemsInCart.length; i++) {
         if (i == itemId) {
             html += `
