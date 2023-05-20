@@ -667,4 +667,5 @@ function addToCart() {
     cart.totalValue += itemQuantity * currentItem.price[currentMainOptionIndex];
     localStorage.setItem('cart', JSON.stringify(cart));
     alert("Dodano produkt do koszyka");
+    updateCartValue()
 }

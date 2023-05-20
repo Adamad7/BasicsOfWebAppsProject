@@ -42,7 +42,7 @@
 
 
         <div id="cart_content"></div>
-        <form>
+        <form action="javascript:sendDelivery()">
             <div id="delivery_info">
                 <table>
                     <thead>
@@ -84,7 +84,7 @@
                         <tr>
                             <td><label for="phone">Numer telefonu:</label></td>
                             <td><input type="tel" id="phone" name="phone" required
-                                    pattern="^[0-9]{3}[- ]?[0-9]{3}[- ]?[0-9]{3}$"></td>
+                                    pattern="^[0-9]{3}[\- ]?[0-9]{3}[\- ]?[0-9]{3}$"></td>
                         </tr>
                         <tr>
                             <td><label for="payment">Metoda płatności:</label></td>
@@ -98,7 +98,7 @@
                                 </select></td>
                         </tr>
                         <tr>
-                            <td><label for="delivery-method">Metoda dostawy:</label></td>
+                            <td><label for="delivery_method">Metoda dostawy:</label></td>
                             <td><select type="text" id="delivery_method" name="delivery_method" required>
                                     <option value="dhl">Kurier DHL</option>
                                     <option value="dpd">Kurier DPD</option>
@@ -110,7 +110,7 @@
                 </table>
 
             </div>
-            <input type="submit" value="Zamów">
+            <input id="submit_delivery" type="submit" value="Zamów">
         </form>
 
     </main>
