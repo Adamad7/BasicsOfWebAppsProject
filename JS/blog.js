@@ -30,7 +30,7 @@ function showArticlesPage() {
         html +=
             `
         <article class="small">
-            <img src="${articles[i].images[0]}">
+            <img src="${articles[i].images[0]}" alt="article_img_${i + 1}">
             <div class="article_title_and_button">
                 <div class="article_title">${articles[i].title}</div>
                 <button onclick="showArticle(${i})">Przeczytaj</button>
@@ -300,6 +300,40 @@ Szkiery w Blekinge to łowisko absolutnie wyjątkowe w skali całego szwedzkiego
 
 Michał Szewczuk, 11.2015
     `
+    },
+    {
+        title: 'Syn, Tata i ryby…',
+        images: [
+            "img/article_3/intext_1.jpg",
+            "img/article_3/intext_2.jpg",
+            "img/article_3/intext_3.jpg",
+            "img/article_3/intext_4.jpg",
+            "img/article_3/intext_5.jpg",
+        ],
+        text: `
+        Chyba do końca życia nie zapomnę pierwszej ryby, którą złowiłem w wieku 6-7 lat. Pierwsza płotka, którą złowiłem na spławikówkę mojego taty. Wędkę dostałem tylko do potrzymania w rękach. Spławik szybko zatonął. Tata powiedział głośno „Pociągnij do góry”. Ja to zrobiłem i na końcu zestawu zaczęła walczyć niewielka rybka. To była moja pierwsza, niezapomniana! Później przyszedł czas na łowienie większych ryb, pierwszych drapieżników. Dostałem od taty swój pierwszy spinning i kołowrotek. Tata nawinął mi grubą żyłkę, na końcu zawiązał przypon i dał mi w prezencie kilka przynęt. Oj jaki byłem z tego dumny! Miałem swój spinning i 4 różne metalowe przynęty – trzy wahadłówki i jedną wirówkę. Nadszedł wolny weekend i tata zabrał mnie nad Narew w okolicach Pułtuska. Tam pojechaliśmy nad rozlewiska Narwi. Tata z kolegą, rozstawili się ze spławikówkami, a ja wziąłem swój spinning i poszedłem łowić dosłownie kilkadziesiąt metrów dalej. Po niedługim czasie, mam branie, potężne, nie do opisania. Ryba walczy zaciekle i w zasadzie zaczyna wciągać mnie do wody… Jest ogromna! Wołam w niebogłosy „Tato szybko. Mam wielką rybę”. Tata przyszedł do mnie z podbierakiem i jak ryba była już blisko brzegu, podebrał ją. Jest! Mam ją! Jest wielka! Emocje sięgnęły zenitu! Jestem zachwycony! Tak zaczęła się moja przygoda z wędkarstwem. Wsiąkłem w nią na dobre. Teraz jak sobie o tym pomyślę, to trochę śmiać mi się chce. Szczupak, którego złowiłem miał pewnie z 50 cm, ale wtedy wydawał mi się ogromny, silny i groźny… Hehehe. Jednak do końca życia nie zapomnę tej chwili. Moje wspomnienia przywołują tę chwilę. Ogromne emocje i pewnie wielka adrenalina, której kiedyś nie byłem w stanie określić.
+        <img src="img/article_3/intext_1.jpg">
+W moim dzisiejszym wędkarstwie, a jest to moja największa życiowa pasja, takie chwile euforii przychodzą już tylko wtedy, kiedy uda mi się złowić naprawdę konkretny okaz. I nie przesadzam. Złowiłem już wiele ryb w swoim życiu i każda złowiona ryba sprawia mi dużą satysfakcję. Jednak prawdziwa adrenalina leje się ze mnie tylko podczas holu wielkich, rekordowych ryb. I to nie ważne, czy jest to rekordowy pstrąg, szczupak, czy sum. Ryba musi dać mi popalić, abym poczuł to, co czułem jak złowiłem tego swojego pierwszego „wielkiego” szczupaka. Pasja wędkarska jest ze mną od dziecka. Zawdzięczam to mojemu tacie! To on od małego zabierał mnie na Mazury, nad Wisłę, czy Narew. To pod jego okiem złowiłem swoje pierwsze ryby…
+
+W dzisiejszych czasach, wielu z nas ma bardzo ograniczony czasu. Ojcowie często wracają późno do domu, niektórzy nie mają wolnych weekendów. Wielu tatusiów chciałoby spróbować się w wędkarstwie, ale po prostu brakuje im czasu na zaangażowanie się w temat od początku. A co tu dopiero mówić o zabraniu syna na ryby, skoro sami nie mamy na to czasu wystarczająco, aby wgryźć się w temat. Wędkarstwo wbrew pozorom, tak naprawdę nie jest takie proste i wymaga od nas wielu godzin poświęconego czasu. Aby „ogarnąć” te wszystkie metody, przynęty, zanęty, spławiki, kołowrotki i wędki… W dzisiejszych czasach, gdzie mamy ogromny wybór sprzętu, gdzie jest wiele technik połowu, czy metod łowienia, tym bardziej staje się to skomplikowane dla kogoś kto chciałby spróbować od zera i to jeszcze z własnym dzieckiem. Natłok informacji, wielki wybór sprzętowy, tak naprawdę nie ułatwia zadania. A wręcz je komplikuje… Dlatego też, warto rozpocząć swoją przygodę z wędkarstwem i zabrać swojego syna na wyprawę wędkarską, czy szkolenie wędkarskie, zorganizowane przez doświadczonych pasjonatów tego hobby. Pod okiem profesjonalistów, spróbować postawić swoje pierwsze kroki w wędkarstwie. Przyswoić w krótkim czasie ogromną wiedzę, którą tak naprawdę trzeba zdobywać latami! Spróbować odnaleźć się w tym wszystkim i wraz z synem spróbować złowić swoją pierwszą rybę, pod opieką przewodnika wędkarskiego. Taka wyprawa wraz z profesjonalistą jest świetnym rozwiązaniem, szczególnie dla ojców, którzy na co dzień nie mają dużo czasu, a chcą wraz ze swoim synem spędzić miłe chwile na łonie natury, odpoczywając i łowiąc ryby.
+
+<img src="img/article_3/intext_2.jpg">
+
+Od 9 lat jestem przewodnikiem wędkarskim. Swoją pasję, połączyłem z pracą. Bardzo chętnie dzielę się swoją zdobytą wiedzą, wraz z moimi Klientami, których goszczę na wspólnych wyprawach. Przez te wszystkie lata spotkałem się z wieloma ludźmi, w tym z ojcami i ich synami, którzy dzięki naszej pomocy, realizują swoje hobby, czyli wędkarstwo. Sami nie mają czasu na rozgryzanie wielu niuansów związanych z wędkarstwem, nie mają czasu na kupowanie sprzętu, a zależy im, aby po prostu spędzić swój czas z synem, łowiąc ryby w dobrym towarzystwie. Za nami wiele udanych wypraw, wielu zadowolonych ojców, patrzących na szczęście swoich dzieci! Wiele udanych holi dużych ryb i wiele miłych chwil spędzonych z dziką naturą w tle… Czego chcieć więcej, jak widok uśmiechniętego ojca, wraz ze szczęśliwym synem, wypuszczających wielką rybę z powrotem do wody…
+
+<img src="img/article_3/intext_3.jpg">
+
+Zapraszam na wyprawy wędkarskie, gdzie ojciec wraz z synem może realizować swoje hobby, pod opieką profesjonalnych przewodników – www.przewodnicywedkarscy.pl. Wyprawy organizujemy zarówno w Polsce, jak i w Europie oraz w różnych miejscach na Świecie.
+
+<img src="img/article_3/intext_4.jpg">
+
+Tych ojców, którzy jeszcze nie zaczęli swojej przygody wędkarskiej lub chcą podszlifować swoją wiedzę pod okiem profesjonalnych instruktorów, zapraszam do jedynej w Polsce szkoły wędkarskiej – www.naukawedkowania.pl. Tutaj wraz ze swoimi dziećmi, możecie nauczyć się podstaw łowienia różnymi technikami i metodami oraz rozwinąć swoje wcześniej zdobyte doświadczenia.
+
+<img src="img/article_3/intext_5.jpg">
+
+Zapraszam na wspólne wyprawy!
+
+Sebastian „rognis_oko” Kalkowski, 07.2016`
     }
 ];
 

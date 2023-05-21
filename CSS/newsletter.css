@@ -1,6 +1,7 @@
 #newsletter_title {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 #newsletter_title img {
@@ -25,6 +26,7 @@ fieldset {
     margin-block: 10px;
     display: flex;
     flex-direction: row;
+    background-color: white;
 }
 
 .form_elements {
@@ -89,5 +91,13 @@ legend {
 
 #submit_button:hover {
     background-color: #55A630;
+
+}
+
+@media screen and (max-width: 768px) {
+    #newsletter_title img {
+        width: 60px;
+        height: auto;
+    }
 
 }

@@ -46,32 +46,31 @@ article.small {
     border-radius: 20px;
     overflow: hidden;
     margin-block: 20px;
-    width: 100%;
-    max-width: 800px;
+    width: 80%;
 }
 
 
 
 article.small img {
-    width: auto;
+    width: 200px;
     height: 120px;
+    flex-shrink: 0;
     z-index: 1;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     border: 2px solid #001E42;
-    /* object-fit: cover; */
-    /* zoom: 120%; */
 }
 
 article.small .article_title_and_button {
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: 120px;
     align-items: end;
     border-radius: 20px;
     z-index: 2;
     margin-left: -20px;
-    background-color: #E6E6E6;
+    background-color: white;
     border: 2px solid #001E42;
     overflow: hidden;
 }
@@ -83,7 +82,6 @@ article.small .article_title {
     padding-left: 10px;
     padding-top: 10px;
     font-size: 1.1em;
-    /* background-color: red; */
 }
 
 article.small button {
@@ -165,4 +163,127 @@ article.full img {
 #gallery img {
     width: 250px;
     height: 160px;
+}
+
+
+@media screen and (max-width: 1024px) {
+    article.small {
+        width: 90%;
+    }
+
+    article.small .article_title {
+        font-size: 1em;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+
+    h2.short {
+        width: 250px;
+    }
+
+    #slider {
+        position: relative;
+        height: 180px;
+        width: 250px;
+        overflow: hidden;
+        border: 2px solid #001E42;
+        border-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #slider img {
+        height: 180px;
+        width: 250px;
+    }
+
+    article.small {
+        height: 94px;
+        margin-block: 20px;
+        width: 90%;
+    }
+
+    article.small img {
+        width: 120px;
+        height: 90px;
+    }
+
+    article.small .article_title_and_button {
+        width: 100%;
+        height: 90px;
+        margin-left: -20px;
+    }
+
+    article.small .article_title {
+        width: 90%;
+        height: 50px;
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-top: 2px;
+        font-size: 0.9em;
+    }
+
+    article.small button {
+        width: 140px;
+        height: 40px;
+        font-size: 1em;
+    }
+}
+
+
+@media screen and (max-width: 425px) {
+
+    h2.short {
+        width: 60%;
+    }
+
+    #slider {
+        position: relative;
+        height: 180px;
+        width: 80%;
+        overflow: hidden;
+        border: 2px solid #001E42;
+        border-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #slider img {
+        height: 180px;
+        width: 100%;
+    }
+
+    article.small {
+        height: 94px;
+        margin-block: 20px;
+        width: 90%;
+    }
+
+    article.small img {
+        width: 90px;
+        height: 90px;
+    }
+
+    article.small .article_title_and_button {
+        width: 100%;
+        height: 90px;
+        margin-left: -50px;
+    }
+
+    article.small .article_title {
+        width: 90%;
+        height: 60px;
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-top: 2px;
+        font-size: 0.9em;
+    }
+
+    article.small button {
+        width: 100px;
+        height: 30px;
+        font-size: 1em;
+    }
 }

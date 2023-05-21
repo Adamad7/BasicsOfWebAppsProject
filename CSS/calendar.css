@@ -21,11 +21,8 @@ h2.calendar_title {
 
 
 #events {
-    /* width: 100%; */
     padding-top: 10px;
-    /* padding-right: 30px; */
     padding-left: 30px;
-    /* background-color: green; */
 }
 
 .event {
@@ -33,7 +30,6 @@ h2.calendar_title {
     flex-direction: row;
     align-items: center;
     margin-block: 15px;
-    /* background-color: green; */
 }
 
 .event img {
@@ -97,10 +93,12 @@ h2.calendar_title {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    background-color: white;
 }
 
 .invisible {
     border-color: transparent;
+    background-color: transparent;
 }
 
 
