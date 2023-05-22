@@ -190,7 +190,6 @@
     background-color: red;
 }
 
-
 @media screen and (max-width: 1024px) {
     #grounds {
         display: flex;
@@ -203,13 +202,11 @@
     }
 
     #details {
-        /* display: flex; */
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
         width: 100%;
-        /* margin-right: 20px; */
     }
 
     .ground_detail {
@@ -226,7 +223,6 @@
     .ground_detail_name {
         font-size: 0.7em;
     }
-
 
     #grounds_map {
         height: 426px;
@@ -283,7 +279,6 @@
     #weather_forecast {
         width: 232px;
         justify-content: center;
-        /* align-items: center; */
         flex-wrap: wrap;
     }
 

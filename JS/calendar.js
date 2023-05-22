@@ -76,13 +76,12 @@ var events = [
 ];
 
 
-
 var date;
-
 var dayOfMonth;
 var currentMonth;
 var month;
 var year;
+
 
 $(document).ready(function () {
 
@@ -102,6 +101,7 @@ function getCurrentDate() {
     currentMonth = month;
     year = date.getFullYear()
 }
+
 
 function updateCalendar() {
     var cal = document.getElementById('calendar_days');
@@ -147,6 +147,7 @@ function updateCalendarTitle() {
     title.innerHTML = `${year} ${months[month]}`;
 }
 
+
 function previousMonth() {
     if (month == 0) {
         year--;
@@ -159,6 +160,7 @@ function previousMonth() {
     updateCalendarTitle();
     updateEvents()
 }
+
 
 function nextMonth() {
     if (month == 11) {

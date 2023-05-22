@@ -42,7 +42,6 @@ fieldset {
     font-weight: bold;
 }
 
-
 .form_elements>div {
     margin-block: 5px;
     font-size: 15px;
@@ -65,7 +64,6 @@ legend {
     padding-block: 5px;
     background-color: #6A99B6;
 }
-
 
 #rodo_section {
     display: flex;
@@ -99,5 +97,4 @@ legend {
         width: 60px;
         height: auto;
     }
-
 }

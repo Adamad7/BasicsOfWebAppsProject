@@ -67,6 +67,8 @@ function isTextCorrect(id, regex) {
     var text = document.getElementById(id);
     return regex.test(text.value);
 }
+
+
 function isRadioCorrect(name) {
     var radio = document.getElementsByName(name);
     for (i = 0; i < radio.length; i++) {
@@ -74,6 +76,8 @@ function isRadioCorrect(name) {
     }
     return false;
 }
+
+
 function isBoxCorrect(className) {
     var box = document.getElementsByClassName(className);
     for (i = 0; i < box.length; i++) {
@@ -110,6 +114,7 @@ function saveData() {
 
 }
 
+
 function isAlreadySubscribed(subscriber, subscribersList) {
     for (let i = 0; i < subscribersList.length; i++) {
         if (subscribersList[i].email == subscriber.email) {
@@ -118,6 +123,7 @@ function isAlreadySubscribed(subscriber, subscribersList) {
     }
     return false;
 }
+
 
 function getText(id) {
     return document.getElementById(id).value;
@@ -135,6 +141,7 @@ function getRadio(name) {
     return null;
 }
 
+
 function getBox(className) {
     var box = document.getElementsByClassName(className);
     var checkedId = [];
@@ -149,6 +156,7 @@ function getBox(className) {
     }
     return labels;
 }
+
 
 function getRodo() {
     return document.getElementById('rodo').checked;

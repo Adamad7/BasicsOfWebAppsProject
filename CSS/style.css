@@ -1,25 +1,8 @@
-/* body {
-    background-image: url('https://www.tapeciarnia.pl/tapety/normalne/tapeta-drzewa-nad-brzegiem-jeziora-o-poranku.jpg');
-    background-repeat: no-repeat;
-} */
-
-
-/*
-Kolory
-001E42 - ciemny niebieski
-E6E6E6 - platynowy
-2292A4 - jasny niebieski
-D7263D - czerwony
-F46036 - pomarańczowy
-
-*/
-
 body {
     background-color: #E6E6E6;
     font-family: Arial;
     padding: 0;
 }
-
 
 footer {
     width: 50%;
@@ -51,13 +34,11 @@ nav a {
     text-decoration: none;
 }
 
-/* The dropdown container */
 .dropdown {
     float: left;
     overflow: hidden;
 }
 
-/* Dropdown button */
 .dropdown .dropbtn {
     font-size: 16px;
     border: none;
@@ -119,12 +100,10 @@ h2 {
     font-size: 1.2em;
     background-color: #4F75A7;
     display: block;
-    /* width: 70%; */
     border: 3px solid #001E42;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-
 }
 
 h2.index_title {
@@ -169,10 +148,6 @@ h3 a:hover {
     display: block
 }
 
-
-
-
-
 @media screen and (max-width: 768px) {
 
     nav {
@@ -209,7 +184,6 @@ h3 a:hover {
     }
 
 }
-
 
 @media screen and (max-width: 425px) {
     nav a {

@@ -1,4 +1,6 @@
-
+var map;
+var weatherLat;
+var weatherLng;
 
 var grounds = [
     {
@@ -148,15 +150,12 @@ var grounds = [
     },
 ]
 
-var map;
-
-var weatherLat;
-var weatherLng;
 
 $(document).ready(function () {
     initMap();
 
 });
+
 
 function initMap() {
     if (navigator.geolocation) {
@@ -168,6 +167,7 @@ function initMap() {
     } else { alert("Twoja przeglądarka nie wspiera geolokalizacji!"); }
 }
 
+
 function panToCurrentLocation() {
     if (navigator.geolocation) {
         var options = { timeout: 60000 };
@@ -177,9 +177,12 @@ function panToCurrentLocation() {
             options);
     } else { alert("Twoja przeglądarka nie wspiera geolokalizacji!"); }
 }
+
+
 function showMyLocation(position) {
     map.flyTo([position.coords.latitude, position.coords.longitude], 11);
 }
+
 
 function showLocation(position) {
     var latitide = position.coords.latitude;
@@ -206,6 +209,7 @@ function showLocation(position) {
         .bindPopup('Moja lokalizacja');
 }
 
+
 function findClosestFishingGround() {
     if (navigator.geolocation) {
         var options = { timeout: 60000 };
@@ -218,6 +222,7 @@ function findClosestFishingGround() {
         return null;
     } else { alert("Twoja przeglądarka nie wspiera geolokalizacji!"); }
 }
+
 
 function closestGround(position) {
     var latitide = position.coords.latitude;
@@ -269,6 +274,7 @@ function updateGroundDetails(e) {
     document.getElementById('ground_spinning').innerHTML = ground.spinning ? 'Tak' : 'Nie';
 }
 
+
 function errorHandler(error) {
     var output = document.getElementById("geo");
     switch (error.code) {
@@ -288,9 +294,6 @@ function errorHandler(error) {
 }
 
 
-
-
-
 function checkWeather() {
     fetch(`https://api.open-meteo.com/v1/forecast?latitude=${weatherLat}&longitude=${weatherLng}&timezone=auto&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum`)
         .then(response => response.json())
@@ -302,6 +305,7 @@ function checkWeather() {
         });
 
 }
+
 
 function extractDayName(date) {
     days = {
@@ -317,18 +321,8 @@ function extractDayName(date) {
     return days[dayNumber];
 }
 
-function getWeatherIcon(weatherCode) {
-    // clear sky - <i class="fa-solid fa-sun"></i>
-    // partly cloudy - <i class="fa-solid fa-cloud-sun"></i>
-    // fog - <i class="fa-solid fa-smog"></i>
-    // drizle - <i class="fa-solid fa-cloud-sun-rain"></i>
-    // rain - <i class="fa-solid fa-cloud-rain"></i>
-    // freezing rain - <i class="fa-solid fa-cloud-showers-water"></i>
-    // snow fall, snow grains - <i class="fa-regular fa-snowflake"></i>
-    // rain showers - <i class="fa-solid fa-cloud-showers-heavy"></i>
-    // snow showers - <i class="fa-solid fa-snowflake"></i>
-    // thunderstorm, with hail - <i class="fa-solid fa-cloud-bolt"></i>
 
+function getWeatherIcon(weatherCode) {
     icons = {
         0: `<i class="fa-solid fa-sun"></i>`,
         1: `<i class="fa-solid fa-cloud-sun"></i>`,
@@ -363,19 +357,14 @@ function getWeatherIcon(weatherCode) {
     return icons[weatherCode];
 }
 
+
 function extractTime(datetime) {
     var date = new Date(datetime);
     return `${date.getHours()}:${date.getMinutes()}`;
 }
 
+
 function updateWeatherElement(weather) {
-    console.log(weather);
-
-    // console.log(weather.daily.time.length);
-    // console.log(new Date(weather.daily.sunrise[0]).getDay());
-    // console.log(new Date(weather.daily.sunrise[0]).getHours());
-
-
     var days = "";
     for (let i = 0; i < weather.daily.time.length; i++) {
 
@@ -427,9 +416,6 @@ function updateWeatherElement(weather) {
         </div>`
 
     }
-
-    // console.log(days);
-
     document.getElementById('weather_forecast').innerHTML = days;
 }
 

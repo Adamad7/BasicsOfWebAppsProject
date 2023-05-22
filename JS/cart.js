@@ -1,3 +1,6 @@
+var cart;
+
+
 $(document).ready(function () {
     updateCartValue();
     if (document.getElementById('cart_content') != null) {
@@ -5,7 +8,6 @@ $(document).ready(function () {
     }
 });
 
-var cart;
 
 function updateCartValue() {
     cart = JSON.parse(localStorage.getItem('cart'));
@@ -85,6 +87,7 @@ function editItem(itemId) {
     document.getElementById('cart_content').innerHTML = html;
 }
 
+
 function removeItem(itemId) {
     console.log("Delete");
     cart.itemsInCart.splice(itemId, 1);
@@ -93,6 +96,7 @@ function removeItem(itemId) {
     localStorage.setItem('cart', JSON.stringify(cart));
     updateCartValue();
 }
+
 
 function saveUpdatedItem(itemId) {
     var newQuantity = document.getElementById('updated_quantity').value;
@@ -109,6 +113,7 @@ function saveUpdatedItem(itemId) {
     updateCartValue();
 }
 
+
 function calculateCartValue() {
     var value = 0;
     for (let i = 0; i < cart.itemsInCart.length; i++) {
@@ -119,11 +124,11 @@ function calculateCartValue() {
 }
 
 
-
 function isFieldOk(fieldId, regex) {
     var fieldValue = document.getElementById(fieldId).value;
     return regex.test(fieldValue);
 }
+
 
 function checkDeliveryDetails() {
     firstNameRegex = /^([A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]+( [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]+)?)$/;
@@ -176,8 +181,8 @@ function checkDeliveryDetails() {
 
 }
 
-function sendDelivery() {
 
+function sendDelivery() {
     if (checkDeliveryDetails()) {
         var deliveries = JSON.parse(localStorage.getItem('deliveries'));
         if (deliveries == null) {

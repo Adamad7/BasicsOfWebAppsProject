@@ -1,3 +1,7 @@
+var currentMainOptionIndex = 0;
+var currentAdditionalOptionIndex = 0;
+var currentItem;
+
 const items = {
     spinning_rods: [
         {
@@ -219,22 +223,6 @@ const items = {
 }
 
 
-// $(document).ready(function () {
-//     updateCartValue();
-// });
-
-// function updateCartValue() {
-//     var cart = JSON.parse(localStorage.getItem('cart'));
-//     if (cart == null) {
-//         cart = {
-//             totalValue: 0,
-//             items: []
-//         };
-//     }
-//     localStorage.setItem('cart', JSON.stringify(cart));
-//     document.getElementById('cart_value').innerHTML = `<i class="fas fa-shopping-cart"></i> (${cart.totalValue}zł)`;
-// }
-
 function showCategory(categoryId) {
     var displayedItems;
     var itemsDescriptions;
@@ -281,7 +269,6 @@ function showCategory(categoryId) {
         default:
             return null;
     }
-    // console.log(itemsDescriptions);
     var html = '';
 
     for (let i = 0; i < displayedItems.length; i++) {
@@ -306,6 +293,7 @@ function showCategory(categoryId) {
     document.getElementById('items_display').innerHTML = html;
 }
 
+
 function getRodsDescription(rods) {
     var descriptions = [];
     for (let i = 0; i < rods.length; i++) {
@@ -315,6 +303,7 @@ function getRodsDescription(rods) {
     }
     return descriptions;
 }
+
 
 function getReelsDescription(reels) {
     var descriptions = [];
@@ -327,6 +316,7 @@ function getReelsDescription(reels) {
     return descriptions;
 }
 
+
 function getStringsDescription(strings) {
     var descriptions = [];
     for (let i = 0; i < strings.length; i++) {
@@ -335,6 +325,7 @@ function getStringsDescription(strings) {
     }
     return descriptions;
 }
+
 
 function getArtificialBaitsDescription(baits) {
     var descriptions = [];
@@ -346,6 +337,7 @@ function getArtificialBaitsDescription(baits) {
     return descriptions;
 }
 
+
 function getNaturalBaitsDescprition(baits) {
     var descriptions = [];
     for (let i = 0; i < baits.length; i++) {
@@ -354,9 +346,8 @@ function getNaturalBaitsDescprition(baits) {
     return descriptions;
 }
 
-var currentMainOptionIndex = 0;
-var currentAdditionalOptionIndex = 0;
-var currentItem;
+
+
 
 function showItemDetails(categoryId, itemIndex) {
     currentMainOptionIndex = 0;
@@ -365,7 +356,6 @@ function showItemDetails(categoryId, itemIndex) {
     var item;
     var mainOptions = '';
     var additionalOptions = '';
-    // console.log(categoryId);
     switch (categoryId) {
 
         case 1:
@@ -442,11 +432,10 @@ function showItemDetails(categoryId, itemIndex) {
         </div>
     </div>
     `;
-
-
     document.getElementsByTagName('main')[0].innerHTML = html;
     updateDetails(categoryId);
 }
+
 
 function updateDetails(categoryId) {
     if (categoryId <= 2) {
@@ -466,6 +455,7 @@ function updateDetails(categoryId) {
     }
 }
 
+
 function getOptions(className, options, optionName, isMainOption, categoryId) {
     var html = `
     <div class="option_name">${optionName}:</div>
@@ -477,6 +467,7 @@ function getOptions(className, options, optionName, isMainOption, categoryId) {
     html += '</div>';
     return html;
 }
+
 
 function updateRodDetails() {
     var html = `
@@ -559,9 +550,11 @@ function updateNaturalBaitDetails() {
     document.getElementById('product_details').innerHTML = html;
 }
 
+
 function updatePrice() {
     document.getElementById('item_price').innerHTML = currentItem.price[currentMainOptionIndex] + "zł";
 }
+
 
 function selectOption(className, selectedIndex, isMainOption, categoryId) {
     var options = document.getElementsByClassName(className);
@@ -640,7 +633,6 @@ function goBack(categoryId) {
 
 
 function addToCart() {
-    // console.log(document.getElementById("quantity").value);
     var itemQuantity = document.getElementById("quantity").value
     if (itemQuantity < 1 || itemQuantity > 10) {
         document.getElementById('quantity_error').innerHTML = "Błąd, możesz kupić od 1 do 10 sztuk produktu";

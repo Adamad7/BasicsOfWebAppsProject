@@ -49,8 +49,6 @@ article.small {
     width: 80%;
 }
 
-
-
 article.small img {
     width: 200px;
     height: 120px;
@@ -106,9 +104,7 @@ article.full {
     width: 85%;
     margin-left: auto;
     margin-right: auto;
-    /* margin-inline: 20px; */
     height: auto;
-    /* background-color: red; */
     font-size: 0.95em;
     line-height: 1.3em;
 }
@@ -135,7 +131,6 @@ article.full img {
     border: 2px solid #001E42;
     border-radius: 15px;
     background-color: #6A99B6;
-    /* z-index: 3; */
     font-size: 1.3em;
 }
 
@@ -231,7 +226,6 @@ article.full img {
         font-size: 1em;
     }
 }
-
 
 @media screen and (max-width: 425px) {
 

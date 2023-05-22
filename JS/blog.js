@@ -1,3 +1,14 @@
+$(document).ready(function () {
+    showArticlesPage();
+
+});
+
+
+$(function () {
+    setInterval("slideSwitch()", 4000);
+});
+
+
 function slideSwitch() {
     var $active = $('#slider IMG.active');
     if ($active.length === 0)
@@ -11,17 +22,6 @@ function slideSwitch() {
             $active.removeClass('active last-active');
         });
 }
-$(function () {
-    setInterval("slideSwitch()", 4000);
-});
-
-
-$(document).ready(function () {
-    showArticlesPage();
-
-});
-
-
 
 function showArticlesPage() {
     var html = '';
@@ -55,10 +55,8 @@ function showArticlesPage() {
 
         <div id="articles">
             ${html}
-        </div>
-    `;
+        </div>`;
 }
-
 
 
 function showArticle(articleId) {
@@ -77,7 +75,6 @@ function showArticle(articleId) {
     html += '<button id="go_back" onclick="showArticlesPage()"><i class="fa-solid fa-chevron-left fa-fade"></i>   Wróć</button>';
     document.getElementsByTagName('main')[0].innerHTML = html;
 }
-
 
 
 const articles = [
