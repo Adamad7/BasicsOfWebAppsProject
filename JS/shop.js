@@ -297,7 +297,7 @@ function showCategory(categoryId) {
             </div>
             <dvi class="item_price_details">
                 <div class="item_price">${displayedItems[i].price[0]} zł</div>
-                <div class="item_details" onClick="showItemDetails(${categoryId}, ${i})">Szczegóły</div>
+                <button class="item_details" onclick="showItemDetails(${categoryId}, ${i})">Szczegóły</button>
             </dvi>
         </div>
         `
@@ -370,30 +370,30 @@ function showItemDetails(categoryId, itemIndex) {
 
         case 1:
             item = items.spinning_rods[itemIndex];
-            mainOptions = getOptions('length', item.length, "Długość", true, categoryId);
-            additionalOptions = getOptions('cw', item.castingWeight, "C.W.", false, categoryId);
+            mainOptions = getOptions('length', item.length, "Długość [mm]", true, categoryId);
+            additionalOptions = getOptions('cw', item.castingWeight, "C.W. [g]", false, categoryId);
             break;
         case 2:
             item = items.carp_rods[itemIndex];
-            mainOptions = getOptions('length', item.length, "Długość", true, categoryId);
-            additionalOptions = getOptions('cw', item.castingWeight, "C.W.", false, categoryId);
+            mainOptions = getOptions('length', item.length, "Długość [mm]", true, categoryId);
+            additionalOptions = getOptions('cw', item.castingWeight, "C.W. [g]", false, categoryId);
             break;
         case 3:
             item = items.front_reels[itemIndex];
-            mainOptions = getOptions('size', item.size, "Rozmiar", true, categoryId);
+            mainOptions = getOptions('size', item.size, "Wielkość", true, categoryId);
             break;
         case 4:
             item = items.back_reels[itemIndex];
-            mainOptions = getOptions('size', item.size, "Rozmiar", true, categoryId);
+            mainOptions = getOptions('size', item.size, "Wielkość", true, categoryId);
             break;
         case 5:
             item = items.main_strings[itemIndex];
-            mainOptions = getOptions('length', item.length, "Długość", true, categoryId);
-            additionalOptions = getOptions('diameter', item.diameter, "Średnica", false, categoryId);
+            mainOptions = getOptions('length', item.length, "Długość [mm]", true, categoryId);
+            additionalOptions = getOptions('diameter', item.diameter, "Średnica [mm]", false, categoryId);
             break;
         case 6:
             item = items.artificial_baits[itemIndex];
-            mainOptions = getOptions('length', item.length, "Długość", true, categoryId);
+            mainOptions = getOptions('length', item.length, "Długość [mm]", true, categoryId);
             additionalOptions = getOptions('color', item.color, "Kolor", false, categoryId);
             break;
         case 7:
@@ -438,7 +438,7 @@ function showItemDetails(categoryId, itemIndex) {
 
         <div id="back_and_cart">
             <button id="go_back" onclick="goBack(${categoryId})"><i class="fa-solid fa-arrow-left-long"></i> Wróć</button>
-            <button id="add_to_cart" onclick="addToCart()"><i class="fa-solid fa-cart-arrow-down"></i> Do koszyka</button>
+            <button id="add_to_cart" onclick="addToCart()"><i class="fa-solid fa-cart-arrow-down fa-beat"></i> Do koszyka</button>
         </div>
     </div>
     `;

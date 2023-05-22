@@ -47,7 +47,7 @@ var events = [
         day: 22,
         time: '19:00',
         location: "Zamość",
-        descritpion: "Zjazd fanatyków wędkarstwa"
+        descritpion: "Zjazd fanów wędkarstwa"
     },
     {
         year: 2023,
@@ -64,6 +64,14 @@ var events = [
         time: '13:30',
         location: "Poznań",
         descritpion: "Targi producentów przynęt"
+    },
+    {
+        year: 2023,
+        month: 7,
+        day: 18,
+        time: '15:30',
+        location: "Gdańsk",
+        descritpion: "Zjazd miłośników łowienia na otwartych wodach"
     },
 ];
 
@@ -176,6 +184,10 @@ function updateEvents() {
     }
 
     var eventsElements = "";
+    if (eventsInMonth.length == 0) {
+        ev.innerHTML = '<div class="event"><div><b>Brak wydarzeń</b></div></div>';
+        return;
+    }
     for (let i = 0; i < eventsInMonth.length; i++) {
         eventsElements +=
             `<div class="event">

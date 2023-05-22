@@ -186,6 +186,10 @@
     background-color: white;
 }
 
+.weekend {
+    background-color: red;
+}
+
 
 @media screen and (max-width: 1024px) {
     #grounds {
@@ -219,6 +223,10 @@
         flex-direction: row;
     }
 
+    .ground_detail_name {
+        font-size: 0.7em;
+    }
+
 
     #grounds_map {
         height: 426px;
@@ -239,6 +247,8 @@
     .day_weather {
         margin-bottom: 10px;
     }
+
+
 }
 
 @media screen and (max-width: 500px) {

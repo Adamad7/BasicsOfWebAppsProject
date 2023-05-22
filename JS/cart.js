@@ -207,7 +207,7 @@ function sendDelivery() {
         calculateCartValue();
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCartValue();
-
+        alert("Twoje zamówienie zostało przekazane do reazliacji!");
         return true;
     }
     else {

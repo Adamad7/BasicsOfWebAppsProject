@@ -22,7 +22,13 @@ h2.calendar_title {
 
 #events {
     padding-top: 10px;
-    padding-left: 30px;
+    padding-left: 25px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border: 2px solid #001E42;
+    border-radius: 20px;
+    background-color: white;
+
 }
 
 .event {

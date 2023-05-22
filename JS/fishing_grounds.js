@@ -258,6 +258,7 @@ function updateGroundDetails(e) {
     species += ground.species[ground.species.length - 1];
     weatherLat = e.latlng.lat;
     weatherLng = e.latlng.lng;
+    document.getElementById('weather_forecast').innerHTML = '';
     document.getElementById('ground_name').innerHTML = ground.name;
     document.getElementById('ground_voivodeship').textContent = ground.voivodeship;
     document.getElementById('ground_spieces').innerHTML = species;
@@ -267,10 +268,6 @@ function updateGroundDetails(e) {
     document.getElementById('ground_accommodation').innerHTML = ground.accommodation ? 'Tak' : 'Nie';
     document.getElementById('ground_spinning').innerHTML = ground.spinning ? 'Tak' : 'Nie';
 }
-
-// function onMapClick(e) {
-//     alert("You clicked the map at " + e.latlng);
-// }
 
 function errorHandler(error) {
     var output = document.getElementById("geo");
@@ -377,9 +374,16 @@ function updateWeatherElement(weather) {
     // console.log(weather.daily.time.length);
     // console.log(new Date(weather.daily.sunrise[0]).getDay());
     // console.log(new Date(weather.daily.sunrise[0]).getHours());
+
+
     var days = "";
     for (let i = 0; i < weather.daily.time.length; i++) {
+
         var day = extractDayName(weather.daily.time[i]);
+        var isWeekend = false;
+        if (day == 'Sb' || day == 'Nd') {
+            isWeekend = true;
+        }
         var icon = getWeatherIcon(weather.daily.weathercode[i]);
         var sunrise = extractTime(weather.daily.sunrise[i]);
         var sunset = extractTime(weather.daily.sunset[i]);
@@ -387,7 +391,7 @@ function updateWeatherElement(weather) {
         var minT = weather.daily.temperature_2m_min[i];
         var precipitation = weather.daily.precipitation_sum[i];
         days += `<div class="day_weather">
-            <div class="weather_dayname">${day}</div>
+            <div class="weather_dayname ${isWeekend ? 'weekend' : ''}">${day}</div>
             <div class="weather_icon">${icon}</i></div>
             <div class="weather_details">
                 <table>
