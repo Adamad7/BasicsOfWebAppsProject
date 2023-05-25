@@ -116,7 +116,7 @@ form {
 }
 
 #delivery_info td {
-    padding: none;
+    padding: 0;
 }
 
 #delivery_info td:first-child {

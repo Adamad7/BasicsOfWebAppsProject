@@ -276,7 +276,7 @@ function showCategory(categoryId) {
             `
         <div class="item">
             <div class="item_image">
-                <img src="${displayedItems[i].img}" alt="123">
+                <img src="${displayedItems[i].img}" alt="item_img">
             </div>
             <div class="item_name">${displayedItems[i].name}</div>
             <div class="item_description">
@@ -398,7 +398,7 @@ function showItemDetails(categoryId, itemIndex) {
     var html = `
     <div id="details">
         <div id="img_and_options">
-            <img src="${item.img}">
+            <img src="${item.img}" alt="item_img">
             
             <div id="name_and_options">
                 <h2 class="product_details">${item.name}</h2>

@@ -110,7 +110,7 @@ h2.index_title {
     width: 70%;
 }
 
-h3 {
+#main_page_content {
     font-weight: 300;
     font-size: 1em;
     background-color: white;
@@ -120,11 +120,11 @@ h3 {
     padding-block: 10px;
 }
 
-h3 div {
+#main_page_content div {
     padding-block: 10px;
 }
 
-h3 a {
+#main_page_content a {
     border: 2px solid #001E42;
     border-radius: 7px;
     background-color: #4F75A7;
@@ -133,7 +133,7 @@ h3 a {
     padding: 2px
 }
 
-h3 a:hover {
+#main_page_content a:hover {
     background-color: #55A630;
 }
 

@@ -62,7 +62,8 @@
                         </tr>
                         <tr>
                             <td><label for="postal">Kod pocztowy:</label></td>
-                            <td><input type="text" id="postal" name="postal" required patter="^[0-9]{2}-[0-9]{3}$"></td>
+                            <td><input type="text" id="postal" name="postal" required pattern="^[0-9]{2}-[0-9]{3}$">
+                            </td>
                         </tr>
                         <tr>
                             <td><label for="locality">Miejscowość:</label></td>
@@ -78,7 +79,7 @@
                         <tr>
                             <td><label for="email">Adres e-mail:</label></td>
                             <td><input type="email" id="email" name="email" required
-                                    patter="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"></td>
+                                    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"></td>
                         </tr>
                         <tr>
                             <td><label for="phone">Numer telefonu:</label></td>
@@ -88,6 +89,7 @@
                         <tr>
                             <td><label for="payment">Metoda płatności:</label></td>
                             <td><select id="payment" name="payment" required>
+                                    <option label="Wybierz płatność"></option>
                                     <option value="credit_card">Karta kredytowa</option>
                                     <option value="debit_card">Karta debetowa</option>
                                     <option value="paypal">PayPal</option>
@@ -98,7 +100,8 @@
                         </tr>
                         <tr>
                             <td><label for="delivery_method">Metoda dostawy:</label></td>
-                            <td><select type="text" id="delivery_method" name="delivery_method" required>
+                            <td><select id="delivery_method" name="delivery_method" required>
+                                    <option label="Wybierz dostawę"></option>
                                     <option value="dhl">Kurier DHL</option>
                                     <option value="dpd">Kurier DPD</option>
                                     <option value="pocztex">Kurier Pocztex</option>

@@ -193,7 +193,7 @@ function updateEvents() {
     for (let i = 0; i < eventsInMonth.length; i++) {
         eventsElements +=
             `<div class="event">
-                <img src="img\\sea-fish-drawing.png" class="event_fish">
+                <img src="img/sea-fish-drawing.png" class="event_fish" alt="fish_img">
                 <div>
                     <b>${eventsInMonth[i].day} ${months[month].toLowerCase()} ${year}</b>
                     - <u>${eventsInMonth[i].location}</u>
