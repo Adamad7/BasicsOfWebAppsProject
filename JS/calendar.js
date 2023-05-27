@@ -84,8 +84,6 @@ var year;
 
 
 $(document).ready(function () {
-
-
     getCurrentDate();
     updateCalendar();
     updateCalendarTitle();
@@ -95,7 +93,6 @@ $(document).ready(function () {
 
 function getCurrentDate() {
     date = new Date();
-
     dayOfMonth = date.getDate();
     month = date.getMonth();
     currentMonth = month;

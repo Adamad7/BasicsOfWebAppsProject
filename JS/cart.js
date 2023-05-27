@@ -89,7 +89,6 @@ function editItem(itemId) {
 
 
 function removeItem(itemId) {
-    console.log("Delete");
     cart.itemsInCart.splice(itemId, 1);
     showCartContent();
     calculateCartValue();
@@ -119,7 +118,6 @@ function calculateCartValue() {
     for (let i = 0; i < cart.itemsInCart.length; i++) {
         value += cart.itemsInCart[i].quantity * cart.itemsInCart[i].item.price[cart.itemsInCart[i].mainOption];
     }
-    console.log(value);
     cart.totalValue = value;
 }
 
@@ -177,8 +175,6 @@ function checkDeliveryDetails() {
         alert("Podano nieprawidłowe dane:\n" + errorDescription);
         return false;
     }
-
-
 }
 
 
@@ -218,5 +214,4 @@ function sendDelivery() {
     else {
         return false;
     }
-
 }

@@ -584,7 +584,7 @@ function selectOption(className, selectedIndex, isMainOption, categoryId) {
 function goBack(categoryId) {
     document.getElementsByTagName('main')[0].innerHTML = `
     <div id="shop">
-            <div id="filters">
+            <aside id="filters">
                 <div class="category">
                     <div class="category_name">
                         Wędziska
@@ -620,7 +620,7 @@ function goBack(categoryId) {
                         <li><a href="javascript:showCategory(7);">Naturalne</a></li>
                     </ul>
                 </div>
-            </div>
+            </aside>
             <div id="items">
                 <h2 class="selected_category">Wybierz kategorię</h2>
                 <div id="items_display">

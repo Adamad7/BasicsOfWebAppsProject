@@ -107,6 +107,7 @@ function saveData() {
     if (!isAlreadySubscribed(subscriber, subscribersList)) {
         subscribersList.push(subscriber);
         localStorage.setItem('newsletter_subscribers', JSON.stringify(subscribersList));
+        alert("Zapisano Cię na newsletter!");
     }
     else {
         alert("Na podany adres email wysyłamy już newsletter");

@@ -25,7 +25,6 @@ function slideSwitch() {
 
 function showArticlesPage() {
     var html = '';
-    console.log(articles[0].images);
     for (let i = 0; i < articles.length; i++) {
         html +=
             `
