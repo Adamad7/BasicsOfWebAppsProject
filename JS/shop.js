@@ -636,6 +636,10 @@ function addToCart() {
     var itemQuantity = document.getElementById("quantity").value
     if (itemQuantity < 1 || itemQuantity > 10) {
         document.getElementById('quantity_error').innerHTML = "Błąd, możesz kupić od 1 do 10 sztuk produktu";
+        return;
+    }
+    else {
+        document.getElementById('quantity_error').innerHTML = '';
     }
     var cart = JSON.parse(localStorage.getItem('cart'));
     if (cart == null) {
@@ -661,3 +665,4 @@ function addToCart() {
     alert("Dodano produkt do koszyka");
     updateCartValue()
 }
+
