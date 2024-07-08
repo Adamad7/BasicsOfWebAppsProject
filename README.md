@@ -1,8 +1,8 @@
-# Project - Web Applications
+# Project - Basics of Web Applications
 
 ## Description
 
-As a software engineering student, this project represents my final submission for the Web Applications course. It's a web application centered around the theme of fishing, featuring a variety of subpages designed to engage fishing enthusiasts.
+As a software engineering student, this project represents my final submission for the Basics of Web Applications course. It's a web application centered around the theme of fishing, featuring a variety of subpages designed to engage fishing enthusiasts.
 
 ### Subpages Overview
 
