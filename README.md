@@ -1,73 +1,72 @@
-# Project - Web Appliactions
+# Project - Web Applications
 
 ## Description
 
-I'm a software engineering student and this is my final project in subject of Web Appliactions.
+As a software engineering student, this project represents my final submission for the Web Applications course. It's a web application centered around the theme of fishing, featuring a variety of subpages designed to engage fishing enthusiasts.
 
-The webpage is focused about fishing. It consists of multiple subpages which are:
+### Subpages Overview
 
-- main page with welcoming mesasge and page description
+- **Main Page**: A welcoming message and a brief description of the project.
 
-![alt text](https://github.com/Adamad7/AplikacjeInternetoweProjekt/screenshots/main_page.jpg)
+  ![Main Page](https://github.com/Adamad7/AplikacjeInternetoweProjekt/blob/main/screenshots/main_page.jpg)
 
-- shop with items and details page about each of them
+- **Shop**: A selection of items with detailed pages for each.
 
-![alt text](https://github.com/Adamad7/AplikacjeInternetoweProjekt/screenshots/shop.jpg)
+  ![Shop](https://github.com/Adamad7/AplikacjeInternetoweProjekt/blob/main/screenshots/shop.jpg)
+  ![Product Details](https://github.com/Adamad7/AplikacjeInternetoweProjekt/blob/main/screenshots/product_details.jpg)
 
-![alt text](https://github.com/Adamad7/AplikacjeInternetoweProjekt/screenshots/product_details.jpg)
+- **Blog**: Featuring blog posts related to fishing.
 
-- blog with bloposts subpages
+  ![Blog](https://github.com/Adamad7/AplikacjeInternetoweProjekt/blob/main/screenshots/blog.jpg)
+  ![Blog Post](https://github.com/Adamad7/AplikacjeInternetoweProjekt/blob/main/screenshots/blogpost.jpg)
 
-![alt text](https://github.com/Adamad7/AplikacjeInternetoweProjekt/screenshots/blog.jpg)
+- **Fishing Grounds Map**: Information on various fishing locations along with weather forecasts.
 
-![alt text](https://github.com/Adamad7/AplikacjeInternetoweProjekt/screenshots/blogpost.jpg)
+  ![Fishing Grounds](https://github.com/Adamad7/AplikacjeInternetoweProjekt/blob/main/screenshots/fishing_grounds.jpg)
 
-- map of fishing grounds with info about them and weather forecast
+- **Events Calendar**: A calendar showcasing upcoming fishing events.
 
-![alt text](https://github.com/Adamad7/AplikacjeInternetoweProjekt/screenshots/fishing_grounds.jpg)
+  ![Calendar](https://github.com/Adamad7/AplikacjeInternetoweProjekt/blob/main/screenshots/calendar.jpg)
 
-- calendar of fishing events
+- **Newsletter Subscription**: A form for users to sign up for updates.
 
-![alt text](https://github.com/Adamad7/AplikacjeInternetoweProjekt/screenshots/calendar.jpg)
+  ![Newsletter](https://github.com/Adamad7/AplikacjeInternetoweProjekt/blob/main/screenshots/newsletter.jpg)
 
-- form to sing to newsletter
+- **Shopping Cart**: A page for reviewing selected items and filling in delivery details.
 
-![alt text](https://github.com/Adamad7/AplikacjeInternetoweProjekt/screenshots/newsletter.jpg)
+  ![Cart](https://github.com/Adamad7/AplikacjeInternetoweProjekt/blob/main/screenshots/cart.jpg)
 
-- cart with items and form to fill delivery details
+- **Sources**: Acknowledgement of the sources for the content used in the project.
 
-![alt text](https://github.com/Adamad7/AplikacjeInternetoweProjekt/screenshots/cart.jpg)
+  ![Sources](https://github.com/Adamad7/AplikacjeInternetoweProjekt/blob/main/screenshots/sources.jpg)
 
-- sources from which i grabbed content
+This project is developed using HTML, CSS, and JavaScript, with the Lightroom library for an image slider on the blog page. Efforts were made to ensure the web application is responsive, with all CSS styles crafted personally.
 
-![alt text](https://github.com/Adamad7/AplikacjeInternetoweProjekt/screenshots/sources.jpg)
+### Installation
 
-It's written in HTML, CSS and JS. I've also used lightroom library to make an image slider on the blog page.
+To explore this web application locally:
 
-I made my web page at least slightly responsive and all the CSS styles we're written by me.
+1. Clone the repository or download the code.
+2. Open "index.html" in a web browser.
 
-Creating this project tought me much about the working of HTML, CSS and JS and using them to create working webpage that I imagined.
+### Acknowledgements
 
-## How to install
+- Fish image - [pixy.org/download/147373](pixy.org/download/147373).
 
-Clone repository or download code and open "index.html" using web browser
+- Fishing grounds - [znajdzlowisko.pl](znajdzlowisko.pl)
 
-## Sources
+- Shop items, items pictures - [sklepwedkarski.pl](sklepwedkarski.pl)
 
-- Fish image - pixy.org/download/147373
+- Blog articles, images - [przewodnicywedkarscy.pl](przewodnicywedkarscy.pl)
 
-- Fishing grounds - znajdzlowisko.pl
+- Weather forecast - [open-meteo.com](open-meteo.com)
 
-- Shop items, items pictures - sklepwedkarski.pl
+- Interactive map - [leafletjs.com](leafletjs.com)
 
-- Blog articles, images - przewodnicywedkarscy.pl
+- Icons - [fontawesome.com](fontawesome.com)
 
-- Weather forecast - open-meteo.com
+- Image slider - [jonraasch.com/blog/a-simple-jquery-slideshow](jonraasch.com/blog/a-simple-jquery-slideshow)
 
-- Interactive map - leafletjs.com
+- Lightbox - [lokeshdhakar.com/projects/lightbox2](lokeshdhakar.com/projects/lightbox2)
 
-- Icons - fontawesome.com
-
-- Image slider - jonraasch.com/blog/a-simple-jquery-slideshow
-
-- Lightbox - lokeshdhakar.com/projects/lightbox2
+Creating this project has been an invaluable learning experience, enhancing my understanding of HTML, CSS, and JavaScript, and their application in web development.
